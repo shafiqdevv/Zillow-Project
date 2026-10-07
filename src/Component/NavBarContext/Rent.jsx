@@ -3,30 +3,26 @@ function Rent(){
          <div className="group relative">
             <h1 className="hover:text-blue-700 cursor-pointer py-5">Rent</h1>
             <div className="hidden group-hover:flex fixed top-16 left-17 right-0 min-h-[300px] bg-white z-50 p-8 gap-20">
-                <div>
+                <div className="flex flex-col gap-5">
                     <p>Rental listings</p>
-                    <div>
-                        <a href="#">Search apartments for rent</a>
-                        <a href="#">Search houses for rent</a>
-                        <a href="#">Search all rental listings</a>
-                        <a href="#">Browse all rental buildings</a>
-                        <a href="#">New construction</a>
-                        <a href="#">Coming soon</a>
-                        <a href="#">Recent home sales</a>
-                        <a href="#">All homes</a>
+                    <div className="grid gap-5">
+                        <a className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">Search apartments for rent</a>
+                        <a className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">Search houses for rent</a>
+                        <a className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">Search all rental listings</a>
+                        <a className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">Browse all rental buildings</a>
                     </div>
                 </div>
-                <div>
+                <div className="border-l-[1px] border-gray-500 pl-6 flex flex-col gap-5">
                     <p>Tools for renters</p>
-                    <div>
-                        <a href="#">Estimate what you can afford</a>
-                        <a href="#">See your application</a>
-                        <a href="#">Manage your tours</a>
-                        <a href="#">Pay your rent</a>
-                        <a href="#">Build your credit</a>
-                        <a href="#">Get renters insurance</a>
-                        <a href="#">Explore housing voucher programs</a>
-                        <a href="#">Learn more about renting</a>
+                    <div className="grid grid-cols-2 gap-5">
+                        <a  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">Estimate what you can afford</a>
+                        <a  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">See your application</a>
+                        <a  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">Manage your tours</a>
+                        <a  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">Pay your rent</a>
+                        <a  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">Build your credit</a>
+                        <a  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">Get renters insurance</a>
+                        <a  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">Explore housing voucher programs</a>
+                        <a  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">Learn more about renting</a>
                     </div>
                 </div>
             </div>
