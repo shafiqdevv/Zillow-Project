@@ -2,9 +2,13 @@ import { Search } from 'lucide-react';
 import { BsSearchHeartFill } from 'react-icons/bs';
 import { MdFavorite} from 'react-icons/md';
 import { RiHome6Fill, RiHomeFill, RiInboxArchiveFill} from 'react-icons/ri';
-function NavSide(){
+import { motion } from 'motion/react';
+function SideBar(){
     return(
-        <div className='flex flex-col w-17 min-h-screen pt-5 border-r border-gray-400 gap-5'>
+        <motion.div
+            initial={{opacity: 0, y: -50}}
+            animate={{opacity: 1, y: 0}}
+        className='flex flex-col w-17 min-h-screen pt-5 border-r border-gray-400 gap-5 bg-white z-99'>
             <div className='flex flex-col items-center gap-1 group'>
                 <Search size={20} strokeWidth={4} className='text-gray-700 hover:text-blue-700 cursor-pointer group'/>
                 <p className='text-xs text-gray-700'>Search</p>
@@ -25,7 +29,7 @@ function NavSide(){
                 <RiInboxArchiveFill size={20} className='text-gray-700 hover:text-blue-700 cursor-pointer'/>
                 <p className='text-xs text-gray-700'>Inbox</p>
             </div>
-        </div>
+        </motion.div>
     )
 }
-export default NavSide;
+export default SideBar;
