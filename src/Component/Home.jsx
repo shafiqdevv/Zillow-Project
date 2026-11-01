@@ -1,6 +1,5 @@
 import Search from "./Search";
 import { motion } from "motion/react";
-import SideBar from "./SideBar";
 function Home() {
   return (
     <motion.div
