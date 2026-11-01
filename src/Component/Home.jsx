@@ -4,9 +4,8 @@ function Home() {
   return (
     <motion.div
     className="flex">
-
       <div className="relative flex-1 h-screen overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/bg.jpg')] bg-cover bg-center">
+        <div className="absolute inset-0 bg-[url('/homeBG.jpg')] bg-cover bg-no-repeat bg-center">
           <div className="absolute inset-0 bg-black/30"></div>
           <motion.div
             initial={{opacity: 0, y: -50}}
