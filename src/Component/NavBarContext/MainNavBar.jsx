@@ -1,4 +1,3 @@
-import { SiZilch } from "react-icons/si";
 import Buy from "./Buy";
 import FindAnAgent from "./FindAnAgent";
 import GetAMortgage from "./GetAMortgage";
@@ -12,9 +11,9 @@ function NavBar() {
       initial={{opacity: 0, y: -50}}
       animate={{opacity: 1, y: 0}}
     className="relative">
-      <div className="flex h-16 px-20 justify-between items-center border-b border-gray-400">
+      <div className="flex h-23 px-23 justify-between items-center border-b border-gray-400">
         {/* left */}
-        <div className="flex gap-4">
+        <div className="flex gap-5">
           <Buy />
           <Rent />
           <Sell />
@@ -28,10 +27,10 @@ function NavBar() {
           {/* <p className="font-bold text-2xl">Zillow</p> */}
         </div>
         {/* right */}
-        <div className="flex gap-4 items-center">
+        <div className="flex gap-5 items-center">
           <ManageRentals />
-          <a href="#" className="hover:text-blue-700 cursor-pointer">Advertise</a>
-          <a href="#" className="hover:text-blue-700 cursor-pointer">Get help</a>
+          <a href="#" className="hover:text-blue-700 cursor-pointer text-lg font-semibold">Advertise</a>
+          <a href="#" className="hover:text-blue-700 cursor-pointer text-lg font-semibold">Get help</a>
           <button className="bg-blue-700 text-white px-4 py-[5px] rounded-xl text-sm font-bold cursor-pointer hover:bg-blue-800">Sign in</button>
         </div>
       </div>

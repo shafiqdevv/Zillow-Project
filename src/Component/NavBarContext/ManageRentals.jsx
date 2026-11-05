@@ -9,7 +9,7 @@ function ManageRentals() {
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <h1 className="hover:text-blue-700 cursor-pointer py-5">
+      <h1 className="hover:text-blue-700 cursor-pointer py-5 text-lg font-semibold">
         Manage rentals
       </h1>
 
@@ -23,9 +23,9 @@ function ManageRentals() {
               duration: 0.25,
               ease: "easeOut",
             }}
-            className="fixed top-16 left-17 right-0 min-h-[300px] bg-white z-50 p-8 gap-20 flex"
+            className="fixed top-17 left-23 right-0 min-h-[300px] bg-white z-50 p-8 gap-20 flex"
           >
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-5 mt-10">
               <p>Management tasks</p>
 
               <div className="grid grid-cols-2 gap-5">
@@ -52,7 +52,7 @@ function ManageRentals() {
               </div>
             </div>
 
-            <div className="border-l-[1px] border-gray-500 pl-6 flex flex-col gap-5">
+            <div className="border-l-[1px] border-gray-500 pl-6 flex flex-col gap-5 mt-10">
               <p>Tools for rental managers</p>
 
               <div className="grid grid-cols-2 gap-5">

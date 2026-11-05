@@ -1,35 +1,37 @@
 import { Search } from 'lucide-react';
 import { BsSearchHeartFill } from 'react-icons/bs';
 import { MdFavorite} from 'react-icons/md';
-import { RiHome6Fill, RiHomeFill, RiInboxArchiveFill} from 'react-icons/ri';
+import { RiHome6Fill, RiInboxArchiveFill} from 'react-icons/ri';
 import { motion } from 'motion/react';
 function SideBar(){
     return(
-        <motion.div
+        <div className='sticky top-0 z-100 w-23'>
+            <motion.div
             initial={{opacity: 0, y: -50}}
             animate={{opacity: 1, y: 0}}
-        className='flex flex-col w-17 min-h-screen pt-5 border-r border-gray-400 gap-5 bg-white z-99'>
-            <div className='flex flex-col items-center gap-1 group'>
-                <Search size={20} strokeWidth={4} className='text-gray-700 hover:text-blue-700 cursor-pointer group'/>
-                <p className='text-xs text-gray-700'>Search</p>
+        className='flex flex-col w-23 min-h-screen pt-5 border-r border-gray-400 gap-10 bg-white'>
+            <div className='flex flex-col items-center group'>
+                <Search size={30} strokeWidth={4} className='text-gray-700 hover:text-blue-700 cursor-pointer group'/>
+                <p className=' text-gray-700 select-none'>Search</p>
             </div>
-            <div className='flex flex-col items-center gap-1'>
-                <BsSearchHeartFill size={20} className='text-gray-700 hover:text-blue-700 cursor-pointer'/>
-                <p className='text-xs text-gray-700'>Updates</p>
+            <div className='flex flex-col items-center '>
+                <BsSearchHeartFill size={30} className='text-gray-700 hover:text-blue-700 cursor-pointer'/>
+                <p className=' text-gray-700 select-none'>Updates</p>
             </div>
-            <div className='flex flex-col items-center gap-1'>
-                <MdFavorite size={20} className='text-gray-700 hover:text-blue-700 cursor-pointer'/>
-                <p className='text-xs text-gray-700'>Search</p>
+            <div className='flex flex-col items-center'>
+                <MdFavorite size={30} className='text-gray-700 hover:text-blue-700 cursor-pointer'/>
+                <p className=' text-gray-700 select-none'>Search</p>
             </div>
-            <div className='flex flex-col items-center gap-1'>
-                <RiHome6Fill size={20} className='text-gray-700 hover:text-blue-700 cursor-pointer'/>
-                <p className='text-xs text-gray-700'>Plan</p>
+            <div className='flex flex-col items-center'>
+                <RiHome6Fill size={30} className='text-gray-700 hover:text-blue-700 cursor-pointer'/>
+                <p className=' text-gray-700 select-none'>Plan</p>
             </div>
-            <div className='flex flex-col items-center gap-1'>
-                <RiInboxArchiveFill size={20} className='text-gray-700 hover:text-blue-700 cursor-pointer'/>
-                <p className='text-xs text-gray-700'>Inbox</p>
+            <div className='flex flex-col items-center'>
+                <RiInboxArchiveFill size={30} className='text-gray-700 hover:text-blue-700 cursor-pointer'/>
+                <p className=' text-gray-700 select-none'>Inbox</p>
             </div>
         </motion.div>
+        </div>
     )
 }
 export default SideBar;

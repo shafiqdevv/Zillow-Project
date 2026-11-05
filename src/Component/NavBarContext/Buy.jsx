@@ -8,7 +8,7 @@ function Buy() {
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <h1 className="hover:text-blue-700 cursor-pointer py-5">Buy</h1>
+      <h1 className="hover:text-blue-700 cursor-pointer py-5 text-lg font-semibold">Buy</h1>
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -16,9 +16,9 @@ function Buy() {
             animate={{ opacity: 1, y: 0,}}
             exit={{ opacity: 0, y: -20,}}
             transition={{ duration: 0.25, ease: "easeOut",}}
-            className="fixed top-16 left-17 right-0 min-h-[300px] bg-white z-50 p-8 gap-20 flex"
+            className="fixed top-17 left-23 right-0 min-h-[300px] bg-white z-50 p-8 gap-20 flex"
           >
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-5 mt-10">
               <p>Homes for sale</p>
               <div className="grid grid-cols-2 gap-5">
                 <a className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">Homes for sale</a>
@@ -31,7 +31,7 @@ function Buy() {
                 <a className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">All homes</a>
               </div>
             </div>
-            <div className="border-l-[1px] border-gray-500 pl-6 flex flex-col gap-5">
+            <div className="border-l-[1px] border-gray-500 pl-6 flex flex-col gap-5 mt-10">
               <p>Resources</p>
               <div className="flex flex-col gap-5">
                 <a className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">Home Buying Guide</a>
