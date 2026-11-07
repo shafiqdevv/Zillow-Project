@@ -59,7 +59,7 @@ function Section2() {
                 <p className="text-xs text-gray-500">
                   Target home price
                 </p>
-                <h3 className="mt-2 text-lg font-bold text-gray-900">
+                <h3 className="mt-2 text-2xl font-extrabold text-gray-900">
                   $--
                 </h3>
               </div>
@@ -68,7 +68,7 @@ function Section2() {
                 <p className="text-xs text-gray-500">
                   Max home price
                 </p>
-                <h3 className="mt-2 text-lg font-bold text-gray-900">
+                <h3 className="mt-2 text-2xl font-extrabold text-gray-900">
                   $--
                 </h3>
               </div>
@@ -77,7 +77,7 @@ function Section2() {
                 <p className="text-xs text-gray-500">
                   Target payment
                 </p>
-                <h3 className="mt-2 text-lg font-bold text-gray-900">
+                <h3 className="mt-2 text-2xl font-extrabold text-gray-900">
                   $--/mo
                 </h3>
               </div>
@@ -86,7 +86,7 @@ function Section2() {
                 <p className="text-xs text-gray-500">
                   Your est. rate
                 </p>
-                <h3 className="mt-2 text-lg font-bold text-gray-900">
+                <h3 className="mt-2 text-2xl font-extrabold text-gray-900">
                   --%
                 </h3>
               </div>
@@ -95,7 +95,7 @@ function Section2() {
                 <p className="text-xs text-gray-500">
                   APR
                 </p>
-                <h3 className="mt-2 text-lg font-bold text-gray-900">
+                <h3 className="mt-2 text-2xl font-extrabold text-gray-900">
                   --%
                 </h3>
               </div>
@@ -105,7 +105,7 @@ function Section2() {
             {/* Button */}
             <button
               onClick={() => setShowPopup(true)}
-              className="mt-5 w-full rounded-full bg-[#006AFF] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
+              className="mt-5 w-full rounded-lg bg-blue-700 px-5 h-15 font-semibold text-white text-xl transition-colors hover:bg-blue-700"
             >
               Get your BuyAbility
             </button>
