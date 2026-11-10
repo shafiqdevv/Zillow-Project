@@ -1,5 +1,9 @@
-const sections = [
+
+import { NavLink } from "react-router-dom";
+
+const homeActions = [
   {
+    id: 1,
     title: "Buy a home",
     description:
       "A real estate agent can provide you with a clear breakdown of costs so that you can avoid surprise expenses.",
@@ -9,6 +13,7 @@ const sections = [
     navLink: "/findALocalAgent",
   },
   {
+    id: 2,
     title: "Rent a home",
     description:
       "We are creating a seamless online experience — from shopping on the largest rental network, to applying to paying.",
@@ -18,6 +23,7 @@ const sections = [
     navLink: "/findRentals",
   },
   {
+    id: 3,
     title: "Sell a home",
     description:
       "No matter what path you take to sell your home, we can help you navigate a successful sale.",
@@ -27,27 +33,24 @@ const sections = [
     navLink: "/seeYourOption",
   },
 ];
-import { NavLink } from "react-router-dom";
-function Section3() {
+
+function HomeActionCards() {
   return (
     <section className="bg-white px-4 py-14 sm:px-6 lg:py-20">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {sections.map((item, index) => (
-          <div
-            key={index}
-            className="flex flex-col items-center rounded-xl border border-gray-400 bg-white px-6 py-8 text-center shadow-lg transition-shadow duration-300 hover:shadow-xl sm:px-7"
+        {homeActions.map((item) => (
+          <article
+            key={item.id}
+            className="group flex flex-col items-center rounded-xl border border-gray-300 bg-white px-6 py-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:px-7"
           >
             {/* Image */}
             <div className="mb-5 flex h-36 w-full items-center justify-center">
-              {item.image ? (
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="h-full w-full object-contain"
-                />
-              ) : (
-                <div className="h-24 w-24 rounded-full bg-[#f5f8fc]" />
-              )}
+              <img
+                src={item.image}
+                alt={item.title}
+                loading="lazy"
+                className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
+              />
             </div>
 
             {/* Title */}
@@ -60,18 +63,18 @@ function Section3() {
               {item.description}
             </p>
 
-            {/* Button */}
-            <NavLink to={item.navLink}
-              type="button"
-              className="mt-7 rounded-xl border-1 border-[#006AFF] px-6 py-3 text-sm font-bold text-[#006AFF] transition-colors duration-300 hover:bg-blue-100 cursor-pointer"
+            {/* Navigation Link */}
+            <NavLink
+              to={item.navLink}
+              className="mt-auto mt-7 inline-flex cursor-pointer items-center justify-center rounded-xl border border-[#006AFF] px-6 py-3 text-sm font-bold text-[#006AFF] transition-colors duration-300 hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#006AFF]"
             >
               {item.button}
             </NavLink>
-          </div>
+          </article>
         ))}
       </div>
     </section>
   );
 }
 
-export default Section3;
+export default HomeActionCards;

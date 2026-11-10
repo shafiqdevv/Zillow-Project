@@ -37,5 +37,4 @@ function NavBar() {
     </motion.div>
   );
 }
-
 export default NavBar;
