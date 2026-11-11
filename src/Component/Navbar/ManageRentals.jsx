@@ -1,17 +1,47 @@
+
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 function ManageRentals() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const managementTasks = [
+    "List your property for rent",
+    "View your properties",
+    "Read your messages",
+  ];
+
+  const rentalTools = [
+    "Check your property's rental value",
+    "Screen renters with applications",
+    "Create and manage leases",
+    "Collect rent",
+    "Learn about renting out your property",
+    "Search help center",
+    "Explore Zillow Rental Manager",
+  ];
+
+  const linkStyle =
+    "text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800";
 
   return (
     <div
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <h1 className="hover:text-blue-700 cursor-pointer py-5 text-lg font-semibold">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center gap-1 hover:text-blue-700 cursor-pointer bg-blue-100 p-1 rounded-lg text-lg font-semibold lg:text-sm xl:text-lg"
+      >
         Manage rentals
-      </h1>
+        <ChevronDown
+          size={16}
+          className={`transition-transform duration-200 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
 
       <AnimatePresence>
         {isOpen && (
@@ -29,26 +59,11 @@ function ManageRentals() {
               <p>Management tasks</p>
 
               <div className="grid grid-cols-2 gap-5">
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  List your property for rent
-                </a>
-
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  View your properties
-                </a>
-
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  Read your messages
-                </a>
+                {managementTasks.map((item) => (
+                  <a key={item} className={linkStyle} href="#">
+                    {item}
+                  </a>
+                ))}
               </div>
             </div>
 
@@ -56,54 +71,11 @@ function ManageRentals() {
               <p>Tools for rental managers</p>
 
               <div className="grid grid-cols-2 gap-5">
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  Check your property's rental value
-                </a>
-
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  Screen renters with applications
-                </a>
-
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  Create and manage leases
-                </a>
-
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  Collect rent
-                </a>
-
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  Learn about renting out your property
-                </a>
-
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  Search help center
-                </a>
-
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  Explore Zillow Rental Manager
-                </a>
+                {rentalTools.map((item) => (
+                  <a key={item} className={linkStyle} href="#">
+                    {item}
+                  </a>
+                ))}
               </div>
             </div>
           </motion.div>

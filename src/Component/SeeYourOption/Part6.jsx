@@ -39,7 +39,7 @@ const articles = [
 
 function SellingResourcesSection() {
   return (
-    <section className="mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+    <section className="mx-auto w-full max-w-7xl px-10 py-14 sm:px-10 md:px-25 sm:py-20 lg:py-24 lg:px-30">
 
       {/* Section Header */}
       <motion.header
@@ -65,7 +65,7 @@ function SellingResourcesSection() {
       </motion.header>
 
       {/* Articles Grid */}
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols4">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:gap-10">
         {articles.map((article, index) => (
           <motion.article
             key={article.id}
@@ -79,7 +79,7 @@ function SellingResourcesSection() {
             <a
               href={article.href}
               aria-label={`Read ${article.title}`}
-              className="relative block aspect-[4/3] overflow-hidden bg-gray-100"
+              className="relative block aspect-4/3 overflow-hidden bg-gray-100"
             >
               <img
                 src={article.image}

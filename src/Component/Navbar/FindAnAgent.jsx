@@ -1,17 +1,41 @@
+
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 function FindAnAgent() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const agentLinks = [
+    "Agent solutions",
+    "Agent advertising",
+    "Agent resource center",
+    "Create a free agent account",
+    "Real estate business plan",
+    "Real estate agent scripts",
+    "Listing flyer templates",
+  ];
+
+  const linkStyle =
+    "text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800";
 
   return (
     <div
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <h1 className="hover:text-blue-700 cursor-pointer py-5 text-lg font-semibold">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center gap-1 hover:text-blue-700 cursor-pointer bg-blue-100 p-1 rounded-lg text-lg font-semibold lg:text-sm xl:text-lg"
+      >
         Find an agent
-      </h1>
+        <ChevronDown
+          size={16}
+          className={`transition-transform duration-200 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
 
       <AnimatePresence>
         {isOpen && (
@@ -29,17 +53,11 @@ function FindAnAgent() {
               <p>Looking for pros?</p>
 
               <div className="flex flex-col gap-5">
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
+                <a className={linkStyle} href="#">
                   Real estate agents
                 </a>
 
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
+                <a className={linkStyle} href="#">
                   Home builders
                 </a>
               </div>
@@ -49,54 +67,11 @@ function FindAnAgent() {
               <p>I'm a pro</p>
 
               <div className="grid grid-cols-2 gap-5">
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  Agent solutions
-                </a>
-
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  Agent advertising
-                </a>
-
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  Agent resource center
-                </a>
-
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  Creat a free agent account
-                </a>
-
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  Real estate business plan
-                </a>
-
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  Real estate agent scripts
-                </a>
-
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  Listing flyer templates
-                </a>
+                {agentLinks.map((item) => (
+                  <a key={item} className={linkStyle} href="#">
+                    {item}
+                  </a>
+                ))}
               </div>
             </div>
           </motion.div>

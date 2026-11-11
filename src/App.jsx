@@ -17,6 +17,8 @@ import Part4 from "./Component/SeeYourOption/Part4";
 import Part5 from "./Component/SeeYourOption/Part5";
 import Part6 from "./Component/SeeYourOption/Part6";
 
+import FindLocalAgent from "./Pages/FindLocalAgent";
+
 // Home Page
 function HomePage() {
   return (
@@ -44,11 +46,10 @@ function SeeYourOptionPage() {
   );
 }
 
-// Main Layout
+// Main Layout (With Sidebar)
 function AppLayout({ children }) {
   return (
     <div className="flex min-h-screen flex-col lg:flex-row">
-
       {/* Desktop Sidebar */}
       <aside className="hidden w-23 shrink-0 lg:block">
         <div className="sticky top-0 h-screen">
@@ -65,7 +66,6 @@ function AppLayout({ children }) {
       <aside className="fixed bottom-0 left-0 z-50 w-full lg:hidden">
         <SideBar />
       </aside>
-
     </div>
   );
 }
@@ -76,6 +76,7 @@ function App() {
       <NavBar />
 
       <Routes>
+        {/* Home - With Sidebar */}
         <Route
           path="/"
           element={
@@ -85,6 +86,7 @@ function App() {
           }
         />
 
+        {/* Selling Options - With Sidebar */}
         <Route
           path="/seeYourOption"
           element={
@@ -93,9 +95,16 @@ function App() {
             </AppLayout>
           }
         />
+
+        {/* Find Local Agent - Without Sidebar */}
+        <Route
+          path="/findALocalAgent"
+          element={<FindLocalAgent />}
+        />
       </Routes>
     </div>
   );
 }
 
 export default App;
+

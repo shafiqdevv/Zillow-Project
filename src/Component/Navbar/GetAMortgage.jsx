@@ -1,17 +1,43 @@
+
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 function GetAMortgage() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const mortgageLinks = [
+    "Discover Zillow Home Loans",
+    "Calculate your BuyAbility",
+    "Get pre-qualified",
+  ];
+
+  const mortgageTools = [
+    "Estimate your mortgage payment",
+    "See current mortgage rates",
+    "Learn about financing a home",
+  ];
+
+  const linkStyle =
+    "text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800";
 
   return (
     <div
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <h1 className="hover:text-blue-700 cursor-pointer py-5 text-lg font-semibold">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center gap-1 hover:text-blue-700 cursor-pointer bg-blue-100 p-1 rounded-lg text-lg font-semibold lg:text-sm xl:text-lg"
+      >
         Get a mortgage
-      </h1>
+        <ChevronDown
+          size={16}
+          className={`transition-transform duration-200 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
 
       <AnimatePresence>
         {isOpen && (
@@ -34,10 +60,7 @@ function GetAMortgage() {
                   dashboard.
                 </p>
 
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
+                <a className={linkStyle} href="#">
                   Home loans dashboard
                 </a>
               </div>
@@ -47,26 +70,11 @@ function GetAMortgage() {
               <p>Your mortgage</p>
 
               <div className="flex flex-col gap-5">
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  Discover Zillow Home Loans
-                </a>
-
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  Calculate your BuyAbility
-                </a>
-
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  Get pre-qualified
-                </a>
+                {mortgageLinks.map((item) => (
+                  <a key={item} className={linkStyle} href="#">
+                    {item}
+                  </a>
+                ))}
               </div>
             </div>
 
@@ -74,26 +82,11 @@ function GetAMortgage() {
               <p>Mortgage tools</p>
 
               <div className="flex flex-col gap-5">
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  Estimate your mortgage payment
-                </a>
-
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  See current mortgage rates
-                </a>
-
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  Learn about financing a home
-                </a>
+                {mortgageTools.map((item) => (
+                  <a key={item} className={linkStyle} href="#">
+                    {item}
+                  </a>
+                ))}
               </div>
             </div>
           </motion.div>

@@ -8,7 +8,7 @@ function HeroSection() {
 
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-[url('/homeBG.jpg')] bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-[url('/homeBG.png')] bg-cover bg-center bg-no-repeat"
         aria-hidden="true"
       />
 

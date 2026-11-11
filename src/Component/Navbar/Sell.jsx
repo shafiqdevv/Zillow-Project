@@ -1,16 +1,43 @@
+
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 function Sell() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const resources = [
+    "Explore your options",
+    "See your home's Zestimate",
+    "US housing market",
+    "Sellers guide",
+  ];
+
+  const sellingOptions = [
+    "Find a seller's agent",
+    "Post For Sale by Owner",
+  ];
+
+  const linkStyle =
+    "text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800";
+
   return (
     <div
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <h1 className="hover:text-blue-700 cursor-pointer py-5 text-lg font-semibold">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center gap-1 hover:text-blue-700 cursor-pointer bg-blue-100 p-1 rounded-lg text-lg font-semibold lg:text-sm xl:text-lg"
+      >
         Sell
-      </h1>
+        <ChevronDown
+          size={16}
+          className={`transition-transform duration-200 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
 
       <AnimatePresence>
         {isOpen && (
@@ -28,33 +55,11 @@ function Sell() {
               <p>Resources</p>
 
               <div className="grid grid-cols-2 gap-5">
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  Explore your options
-                </a>
-
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  See your home's Zestimate
-                </a>
-
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  US housing market
-                </a>
-
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  Sellers guide
-                </a>
+                {resources.map((item) => (
+                  <a key={item} className={linkStyle} href="#">
+                    {item}
+                  </a>
+                ))}
               </div>
             </div>
 
@@ -62,19 +67,11 @@ function Sell() {
               <p>Selling options</p>
 
               <div className="flex flex-col gap-5">
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  Find a seller's agent
-                </a>
-
-                <a
-                  className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800"
-                  href="#"
-                >
-                  Post For Sale by Owner
-                </a>
+                {sellingOptions.map((item) => (
+                  <a key={item} className={linkStyle} href="#">
+                    {item}
+                  </a>
+                ))}
               </div>
             </div>
           </motion.div>

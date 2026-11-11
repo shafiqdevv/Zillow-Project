@@ -1,44 +1,117 @@
+
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
+import { ChevronDown } from "lucide-react";
+
+const homesLinks = [
+  "Homes for sale",
+  "New construction",
+  "Foreclosures",
+  "Coming soon",
+  "For sale by owner",
+  "Recent home sales",
+  "Open houses",
+  "All homes",
+];
+
+const resourceLinks = [
+  "Home Buying Guide",
+  "Foreclosure center",
+  "Real estate app",
+  "Down payment assistance",
+  "Find a buyer's agent",
+];
+
 function Buy() {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div
       className="group"
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <h1 className="hover:text-blue-700 cursor-pointer py-5 text-lg font-semibold">Buy</h1>
+      {/* Buy Button */}
+      <button
+        onClick={() => setIsOpen((prev) => !prev)}
+        aria-expanded={isOpen}
+        className="
+          flex items-center gap-1
+          hover:text-blue-700 cursor-pointer
+          bg-blue-100 p-1 rounded-lg
+          text-lg font-semibold
+          lg:text-sm xl:text-lg
+        "
+      >
+        Buy
+
+        <ChevronDown
+          size={15}
+          className={`transition-transform duration-200 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+
+      {/* Dropdown */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20}}
-            animate={{ opacity: 1, y: 0,}}
-            exit={{ opacity: 0, y: -20,}}
-            transition={{ duration: 0.25, ease: "easeOut",}}
-            className="fixed top-17 left-23 right-0 min-h-[300px] bg-white z-50 p-8 gap-20 flex"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{
+              duration: 0.25,
+              ease: "easeOut",
+            }}
+            className="
+              fixed top-17 left-23 right-0
+              min-h-75 bg-white z-50
+              p-8 gap-20
+              lg:flex flex-col lg:flex-row
+            "
           >
-            <div className="flex flex-col gap-5 mt-10">
+            {/* Homes for Sale */}
+            <div className="lg:flex lg:flex-col gap-5 mt-10">
               <p>Homes for sale</p>
+
               <div className="grid grid-cols-2 gap-5">
-                <a className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">Homes for sale</a>
-                <a className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">New construction</a>
-                <a className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">Foreclosures</a>
-                <a className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">Coming soon</a>
-                <a className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">For sale by owner</a>
-                <a className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">Recent home sales</a>
-                <a className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">Open houses</a>
-                <a className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">All homes</a>
+                {homesLinks.map((link) => (
+                  <a
+                    key={link}
+                    href="#"
+                    className="
+                      text-blue-600
+                      hover:underline
+                      decoration-1 decoration-gray-800
+                      hover:text-gray-800
+                    "
+                  >
+                    {link}
+                  </a>
+                ))}
               </div>
             </div>
-            <div className="border-l-[1px] border-gray-500 pl-6 flex flex-col gap-5 mt-10">
+
+            {/* Resources */}
+            <div className="border-l border-gray-500 pl-6 flex flex-col gap-5 mt-10">
               <p>Resources</p>
+
               <div className="flex flex-col gap-5">
-                <a className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">Home Buying Guide</a>
-                <a className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">Foreclosure center</a>
-                <a className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">Real estate app</a>
-                <a className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">Down payment assistance</a>
-                <a className="text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800" href="#">Find a buyer's agent</a>
+                {resourceLinks.map((link) => (
+                  <a
+                    key={link}
+                    href="#"
+                    className="
+                      text-blue-600
+                      hover:underline
+                      decoration-1 decoration-gray-800
+                      hover:text-gray-800
+                    "
+                  >
+                    {link}
+                  </a>
+                ))}
               </div>
             </div>
           </motion.div>
