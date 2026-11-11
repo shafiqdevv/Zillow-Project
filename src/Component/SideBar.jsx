@@ -1,37 +1,51 @@
-import { Search } from 'lucide-react';
-import { BsSearchHeartFill } from 'react-icons/bs';
-import { MdFavorite} from 'react-icons/md';
-import { RiHome6Fill, RiInboxArchiveFill} from 'react-icons/ri';
-import { motion } from 'motion/react';
-function SideBar(){
-    return(
-        <div className='sticky top-0 z-100 w-23'>
-            <motion.div
-            initial={{opacity: 0, y: -50}}
-            animate={{opacity: 1, y: 0}}
-        className='flex flex-col w-23 min-h-screen pt-5 border-r border-gray-400 gap-10 bg-white'>
-            <div className='flex flex-col items-center group'>
-                <Search size={30} strokeWidth={4} className='text-gray-700 hover:text-blue-700 cursor-pointer group'/>
-                <p className=' text-gray-700 select-none'>Search</p>
-            </div>
-            <div className='flex flex-col items-center '>
-                <BsSearchHeartFill size={30} className='text-gray-700 hover:text-blue-700 cursor-pointer'/>
-                <p className=' text-gray-700 select-none'>Updates</p>
-            </div>
-            <div className='flex flex-col items-center'>
-                <MdFavorite size={30} className='text-gray-700 hover:text-blue-700 cursor-pointer'/>
-                <p className=' text-gray-700 select-none'>Search</p>
-            </div>
-            <div className='flex flex-col items-center'>
-                <RiHome6Fill size={30} className='text-gray-700 hover:text-blue-700 cursor-pointer'/>
-                <p className=' text-gray-700 select-none'>Plan</p>
-            </div>
-            <div className='flex flex-col items-center'>
-                <RiInboxArchiveFill size={30} className='text-gray-700 hover:text-blue-700 cursor-pointer'/>
-                <p className=' text-gray-700 select-none'>Inbox</p>
-            </div>
-        </motion.div>
-        </div>
-    )
+
+import { Search } from "lucide-react";
+import { BsSearchHeartFill } from "react-icons/bs";
+import { MdFavorite } from "react-icons/md";
+import {
+  RiHome6Fill,
+  RiInboxArchiveFill,
+} from "react-icons/ri";
+
+import { motion } from "motion/react";
+
+function SideBar() {
+  const items = [
+    { icon: Search, label: "Search" },
+    { icon: BsSearchHeartFill, label: "Updates" },
+    { icon: MdFavorite, label: "Saved" },
+    { icon: RiHome6Fill, label: "Plan" },
+    { icon: RiInboxArchiveFill, label: "Inbox" },
+  ];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      className="flex w-full flex-row items-center justify-around border-t border-gray-300 bg-white py-3 shadow-[0_-2px_10px_rgba(0,0,0,0.05)] lg:min-h-screen lg:w-23 lg:flex-col lg:justify-start lg:gap-10 lg:border-r lg:border-t-0 lg:py-5 lg:shadow-none"
+    >
+      {items.map((item, index) => {
+        const Icon = item.icon;
+
+        return (
+          <div
+            key={index}
+            className="group flex cursor-pointer flex-col items-center gap-1"
+          >
+            <Icon
+              size={25}
+              className="text-gray-700 transition-colors duration-200 group-hover:text-blue-700 sm:size-7"
+            />
+
+            <p className="select-none text-xs text-gray-700 transition-colors group-hover:text-blue-700 sm:text-sm">
+              {item.label}
+            </p>
+          </div>
+        );
+      })}
+    </motion.div>
+  );
 }
+
 export default SideBar;

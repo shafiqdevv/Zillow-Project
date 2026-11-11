@@ -7,6 +7,7 @@ import CashOfferSection from "../Component/SeeYourOption/CashOfferSection";
 import FindYourAgentSection from "../Component/SeeYourOption/FindYourAgentSection";
 import ForSaleByOwnerSection from "../Component/SeeYourOption/ForSaleByOwnerSection";
 import SellingResourcesSection from "../Component/SeeYourOption/SellingResourcesSection";
+import SellingPlanSection from "../Component/SeeYourOption/Part7";
 
 function SeeYourOption() {
   return (
@@ -42,6 +43,7 @@ function SeeYourOption() {
         <FindYourAgentSection />
         <ForSaleByOwnerSection />
         <SellingResourcesSection />
+        <SellingPlanSection/>
       </div>
     </motion.main>
   );
