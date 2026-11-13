@@ -1,107 +1,17 @@
 import { ChevronDown, ArrowRight } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
+import { titles, dropDownsContents, footerLinks, companyLinks } from "../SeeYourOption/LastSectionData";
 
-const footerMenus = [
-  {
-    title: "Real Estate",
-    links: ["About", "Zestimates", "News", "Research", "Careers"],
-    item: "RealEstates",
-  },
-  {
-    title: "Rentals",
-    links: ["Rental Listings", "Rental Buildings", "Renter Hub", "Advertise"],
-    item: "Rentals",
-  },
-  {
-    title: "Mortgage Rates",
-    links: [
-      "Current Mortgage Rates",
-      "Mortgage Calculator",
-      "Mortgage Lenders",
-      "Refinance",
-    ],
-    item: "MortgageRates",
-  },
-  {
-    title: "Browse Homes",
-    links: [
-      "Homes for Sale",
-      "Homes for Rent",
-      "New Construction",
-      "Foreclosures",
-    ],
-    item: "BrowseHomes",
-  },
-];
-
-const footerLinks = [
-  "About",
-  "Zestimates",
-  "News",
-  "Research",
-  "Careers",
-  "Applicant Privacy Notice",
-  "Help",
-  "Advertise",
-  "Fair Housing Guide",
-  "Advocacy",
-  "Terms of use",
-  "Privacy Notice",
-  "Ad Choices",
-  "Cookie Preference",
-  "Learn",
-  "AI",
-  "Mobile Apps",
-];
-
-const companyLinks = ["Trulia", "StreetEasy", "HotPads", "Out East"];
-
-const realEstates = [
-  "About",
-  "Zestimates",
-  "News",
-  "Research",
-  "Careers",
-  "Applicant Privacy Notice",
-  "Help",
-  "Advertise",
-  "Fair Housing Guide",
-  "Advocacy",
-  "Terms of use",
-  "Privacy Notice",
-  "Ad Choices",
-  "Cookie Preference",
-  "Learn",
-  "AI",
-  "Mobile Apps",
-  "About",
-  "Zestimates",
-  "News",
-  "Research",
-  "Careers",
-  "Applicant Privacy Notice",
-  "Help",
-  "Advertise",
-  "Fair Housing Guide",
-  "Advocacy",
-  "Terms of use",
-  "Privacy Notice",
-  "Ad Choices",
-  "Cookie Preference",
-  "Learn",
-  "AI",
-  "Mobile Apps",
-];
 
 function LastSection() {
   const [isOpen, setIsOpen] = useState(false);
+
   const [activeItem, setActiveItem] = useState("none");
+  const activeContent = dropDownsContents[activeItem];
+
   function handleClick(item) {
     setActiveItem(item);
     setIsOpen((prev) => !prev);
-    console.log(isOpen);
-    console.log(activeItem);
   }
   return (
     <div>
@@ -122,34 +32,39 @@ function LastSection() {
       {/* Main Navigation */}
       <div className="border-gray-300 px-4 py-8">
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-y-6 sm:grid-cols-4 sm:gap-0 p-3">
-          {footerMenus.map((menu, index) => (
+          {titles.map((title, index) => (
             <div
-              key={menu.title}
+              key={index}
               className={`flex flex-col items-center relative ${
                 index !== 0 ? "sm:border-l sm:border-gray-300" : ""
               }`}
             >
               <button
-                onClick={() => handleClick(menu.item)}
+                onClick={() => handleClick(title)}
                 type="button"
                 className="flex z-1 bg-blue-100 py-1 px-2 rounded-lg items-center gap-1 cursor-pointer text-base font-medium text-gray-900 transition-colors hover:text-[#006AFF]"
               >
-                {menu.title}
+                {title}
                 <ChevronDown
                   size={15}
                   className={`transition-transform duration-100 ${
-                    activeItem === menu.item && isOpen ? "rotate-180" : ""
+                    activeItem === title && isOpen ? "rotate-180" : ""
                   }`}
                 />
               </button>
 
               {/* Dropdown */}
-              {activeItem === menu.item && isOpen && (
+              {activeItem === title && isOpen && (
                 <ul className="absolute top-9 z-2 h-100 bg-white shadow-lg overscroll-contain overflow-y-auto flex flex-col items-center gap-1">
-                  {realEstates.map((realEstate) => (
-                   
-                      <li className="underline mx-8 text-blue-700 cursor-pointer hover:text-black">{realEstate}</li>
-                    
+                  {activeContent.map((dropDown) => (
+                    <div className="flex flex-col items-center py-5">
+                      <h1 className="text-xl mb-5 font-bold text-gray-700">{dropDown.title}</h1>
+                      {dropDown.links.map((link) => (
+                        <li className="underline mx-8 text-blue-700 cursor-pointer hover:text-black">
+                          {link}
+                        </li>
+                      ))}
+                    </div>
                   ))}
                 </ul>
               )}

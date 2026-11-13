@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 
 function Section1() {
   return (
@@ -21,11 +22,11 @@ function Section1() {
           </p>
 
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
-            <button
+            <NavLink to={'/login'}
               className="w-full rounded-full bg-[#006aff] px-8 py-3.5 font-semibold text-white shadow-md shadow-blue-200 transition-all duration-300 hover:-translate-y-1 hover:bg-blue-700 hover:shadow-lg sm:w-auto"
             >
               Sign in
-            </button>
+            </NavLink>
 
             <span className="text-sm text-gray-400">
               Personalized home discovery

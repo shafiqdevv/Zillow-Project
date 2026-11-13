@@ -26,7 +26,7 @@ function SellingOptionsHero() {
         <button
           type="button"
           onClick={handleBack}
-          className="group mb-8 inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold text-gray-700 transition-colors hover:bg-gray-100 hover:text-[#006AFF] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#006AFF]"
+          className="mt-5 group mb-8 inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold text-gray-700 transition-colors hover:bg-gray-100 hover:text-[#006AFF] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#006AFF]"
         >
           <ArrowLeft
             size={20}
