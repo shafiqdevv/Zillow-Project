@@ -217,7 +217,7 @@ function NavBar() {
           }
           aria-expanded={menuOpen}
         >
-          {menuOpen ? <X size={27} /> : <Menu size={27} />}
+          {menuOpen ? <X size={27} color="red"/> : <Menu size={27} color="red"/>}
         </button>
 
         {/* Logo */}

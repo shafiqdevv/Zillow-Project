@@ -39,7 +39,7 @@ const articles = [
 
 function SellingResourcesSection() {
   return (
-    <section className="mx-auto w-full max-w-7xl px-10 py-14 sm:px-10 md:px-25 sm:py-20 lg:py-24 lg:px-30">
+    <section className="mx-auto w-full max-w-7xl px-10 sm:px-10 md:px-25 lg:px-30">
 
       {/* Section Header */}
       <motion.header
@@ -95,7 +95,7 @@ function SellingResourcesSection() {
 
             {/* Article Content */}
             <div className="flex flex-1 flex-col p-5">
-              <p className="mb-3 flex items-center gap-2 text-sm text-gray-500">
+              <p className="mb-3 flex items-center gap-2 text-sm text-gray-500 border border-gray-500 w-30 h-8 justify-center rounded-full">
                 <Clock3 size={15} />
                 {article.readTime}
               </p>
@@ -118,6 +118,12 @@ function SellingResourcesSection() {
           </motion.article>
         ))}
       </div>
+      <footer className="m-5">
+        <p className="text-center">As you take the steps to sell your home, learn what to expect with our
+          <span> </span>
+          <a href="" className="underline text-blue-700 text-lg">Sellers Guide</a>
+        </p>
+      </footer>
     </section>
   );
 }

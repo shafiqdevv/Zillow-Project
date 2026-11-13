@@ -105,7 +105,7 @@ function Section2() {
             {/* Button */}
             <button
               onClick={() => setShowPopup(true)}
-              className="mt-5 w-full rounded-lg bg-blue-700 px-5 h-15 font-semibold text-white text-xl transition-colors hover:bg-blue-700"
+              className="mt-5 w-full rounded-lg bg-blue-700 px-5 h-15 font-semibold text-white text-xl transition-colors hover:bg-blue-700 cursor-pointer"
             >
               Get your BuyAbility
             </button>

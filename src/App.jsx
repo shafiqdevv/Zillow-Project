@@ -10,14 +10,17 @@ import Section3 from "./Component/Home/Section3";
 import SideBar from "./Component/SideBar";
 import NavBar from "./Component/Navbar/NavBar";
 
-import Part1 from "./Component/SeeYourOption/SellingOptionsHero";
-import Part2 from "./Component/SeeYourOption/Part2";
-import Part3 from "./Component/SeeYourOption/Part3";
-import Part4 from "./Component/SeeYourOption/Part4";
-import Part5 from "./Component/SeeYourOption/Part5";
-import Part6 from "./Component/SeeYourOption/Part6";
+import SellingOptionsHero from "./Component/SeeYourOption/SellingOptionsHero";
+import PartnerAgentBenefits from "./Component/SeeYourOption/PartnerAgentBenefits";
+import CashOfferSection from "./Component/SeeYourOption/CashOfferSection";
+import FindYourAgentSection from "./Component/SeeYourOption/FindYourAgentSection";
+import ForSaleByOwnerSection from "./Component/SeeYourOption/ForSaleByOwnerSection";
+import SellingResourcesSection from "./Component/SeeYourOption/SellingResourcesSection";
 
 import FindLocalAgent from "./Pages/FindLocalAgent";
+import LastSection from "./Component/Home/LastSection";
+import BuildSmartSelling from "./Component/SeeYourOption/BuildSmartSelling";
+import FrequentlyQuestion from "./Component/SeeYourOption/FrequentlyQuestion";
 
 // Home Page
 function HomePage() {
@@ -27,6 +30,7 @@ function HomePage() {
       <Section1 />
       <Section2 />
       <Section3 />
+      <LastSection/>
       <Footer />
     </>
   );
@@ -35,14 +39,16 @@ function HomePage() {
 // Selling Options Page
 function SeeYourOptionPage() {
   return (
-    <>
-      <Part1 />
-      <Part2 />
-      <Part3 />
-      <Part4 />
-      <Part5 />
-      <Part6 />
-    </>
+    <div className="md:px-30">
+      <SellingOptionsHero />
+      <PartnerAgentBenefits />
+      <CashOfferSection />
+      <FindYourAgentSection />
+      <ForSaleByOwnerSection />
+      <SellingResourcesSection />
+      <BuildSmartSelling/>
+      <FrequentlyQuestion/>
+    </div>
   );
 }
 

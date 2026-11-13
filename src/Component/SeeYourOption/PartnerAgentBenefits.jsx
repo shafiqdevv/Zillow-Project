@@ -49,11 +49,11 @@ const agentBenefits = [
 
 function PartnerAgentBenefits() {
   return (
-    <section className="bg-[#147568] px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+    <section className="bg-[#147568] px-10 py-5 rounded-lg lg:mx-5">
       <div className="mx-auto max-w-[1300px]">
 
         {/* Section Header */}
-        <header className="mb-12 text-center sm:mb-16">
+        <header className="mb-8 text-center sm:mb-10">
           <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
             Sell with a{" "}
             <span className="text-[#91ED69]">
@@ -63,12 +63,12 @@ function PartnerAgentBenefits() {
         </header>
 
         {/* Benefit Cards */}
-        <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 lg:gap-8">
+        <div className="grid grid-cols-1 items-stretch gap-4 md:grid-cols-2 lg:gap-5">
 
           {agentBenefits.map((item) => (
             <article
               key={item.id}
-              className="flex min-h-[450px] flex-col items-center rounded-2xl border border-gray-200 bg-white px-6 py-8 text-center shadow-sm transition-transform duration-300 hover:-translate-y-1 sm:min-h-[486px] sm:px-10 sm:py-10"
+              className="flex flex-col items-center rounded-2xl border border-gray-200 bg-white px-4 py-4 text-center shadow-sm transition-transform duration-300 hover:-translate-y-1"
             >
 
               {/* Image */}
@@ -83,11 +83,11 @@ function PartnerAgentBenefits() {
 
               {/* Card Content */}
               <div className="flex w-full flex-1 flex-col items-center justify-center">
-                <h3 className="text-xl font-extrabold leading-snug text-gray-950 sm:text-2xl">
+                <h3 className="text-xl font-extrabold leading-snug text-gray-950">
                   {item.title}
                 </h3>
 
-                <p className="mt-5 max-w-[560px] text-base leading-7 text-gray-900 sm:text-lg sm:leading-8">
+                <p className="mt-3 max-w-[560px] text-base text-gray-700 sm:text-">
                   {item.description}
                 </p>
               </div>
@@ -98,9 +98,9 @@ function PartnerAgentBenefits() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mx-auto mt-12 max-w-4xl text-center sm:mt-14">
+        <div className="mx-auto mt-5 max-w-4xl text-center sm:mt-10">
 
-          <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-[#91ED69]">
+          <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-[#91ED69]">
             <CheckCircle2 size={27} />
           </div>
 
@@ -108,7 +108,7 @@ function PartnerAgentBenefits() {
             Find the right selling option for your home
           </h3>
 
-          <p className="mx-auto mt-4 max-w-3xl text-base leading-8 text-white sm:text-lg">
+          <p className="mx-auto mt-2 max-w-3xl text-base text-white">
             Answer a few questions to connect with a Zillow partner
             agent who offers Showcase or explore other selling options
             — all in 3 minutes with no commitment.
@@ -116,7 +116,7 @@ function PartnerAgentBenefits() {
 
           <a
             href="#get-started"
-            className="mt-8 inline-flex items-center justify-center gap-3 rounded-xl bg-white px-8 py-4 text-base font-bold text-[#147568] transition-all duration-300 hover:-translate-y-1 hover:bg-[#91ED69] hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            className="mt-5 inline-flex items-center justify-center gap-3 rounded-xl bg-white px-8 py-4 text-base font-bold text-[#147568] transition-all duration-300 hover:-translate-y-1 hover:bg-[#91ED69] hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
           >
             Get started
             <ArrowRight size={20} />

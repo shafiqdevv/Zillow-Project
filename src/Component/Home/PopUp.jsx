@@ -41,7 +41,7 @@ function PopUp({ onClose }) {
   return (
     <div
       onClick={onClose}
-      className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-black/60 backdrop-blur-sm"
+      className="fixed inset-0 z-100 flex items-center justify-center overflow-hidden bg-black/60 backdrop-blur-sm"
     >
       <div
         onClick={(e) => e.stopPropagation()}

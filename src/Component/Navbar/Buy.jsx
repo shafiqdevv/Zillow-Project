@@ -1,4 +1,3 @@
-
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
@@ -42,9 +41,8 @@ function Buy() {
           text-lg font-semibold
           lg:text-sm xl:text-lg
         "
-      >
+        >
         Buy
-
         <ChevronDown
           size={15}
           className={`transition-transform duration-200 ${

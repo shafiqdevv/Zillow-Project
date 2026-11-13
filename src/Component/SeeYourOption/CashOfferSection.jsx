@@ -27,12 +27,12 @@ const cashOfferBenefits = [
 
 function CashOfferSection() {
   return (
-    <section className="bg-white px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+    <section className="bg-white px-4 py-14 sm:px-6 sm:py-10 lg:px-8">
 
       <div className="mx-auto max-w-7xl">
 
         {/* Section Header */}
-        <header className="mb-10 max-w-2xl sm:mb-14">
+        <header className="mb-10 max-w-2xl sm:mb-5">
           <span className="text-sm font-bold uppercase tracking-wider text-[#006AFF]">
             Find your selling path
           </span>
@@ -51,27 +51,27 @@ function CashOfferSection() {
         <div className="grid overflow-hidden rounded-3xl border border-gray-200 bg-[#f7f9fc] lg:grid-cols-2">
 
           {/* Text Content */}
-          <div className="flex flex-col justify-center p-6 sm:p-10 lg:p-14">
+          <div className="flex flex-col justify-center p-5 sm:p-8 lg:p-10">
 
             <span className="inline-flex w-fit items-center gap-2 rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-[#006AFF]">
               <ShieldCheck size={17} />
               A flexible way to sell
             </span>
 
-            <h3 className="mt-6 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
+            <h3 className="mt-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
               Get a{" "}
               <span className="text-[#006AFF]">
                 cash offer
               </span>
             </h3>
 
-            <p className="mt-4 text-base leading-7 text-gray-600">
+            <p className="mt-2 text-base text-gray-600">
               Explore an alternative way to sell your home with a
               cash offer from a trusted partner.
             </p>
 
             {/* Benefits */}
-            <ul className="mt-8 space-y-6">
+            <ul className="mt-4 space-y-5">
 
               {cashOfferBenefits.map((item) => {
                 const Icon = item.icon;
@@ -95,7 +95,7 @@ function CashOfferSection() {
             </ul>
 
             {/* Additional Information */}
-            <div className="mt-8 border-t border-gray-200 pt-6">
+            <div className="mt-5 border-t border-gray-200 pt-6">
               <p className="text-sm font-semibold text-gray-900">
                 Take about 3 minutes to check your eligibility.
               </p>
@@ -108,7 +108,7 @@ function CashOfferSection() {
             {/* CTA */}
             <a
               href="#cash-offer"
-              className="mt-8 inline-flex w-fit items-center justify-center gap-3 rounded-xl bg-[#006AFF] px-7 py-4 text-sm font-bold text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-blue-700 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#006AFF] sm:text-base"
+              className="mt-5 inline-flex w-fit items-center justify-center gap-3 rounded-xl bg-[#006AFF] px-7 py-4 text-sm font-bold text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-blue-700 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#006AFF] sm:text-base"
             >
               Get a cash offer
               <MoveRight
