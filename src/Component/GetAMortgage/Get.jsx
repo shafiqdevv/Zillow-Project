@@ -45,7 +45,7 @@ function Get() {
             <img
               src="https://www.zillowstatic.com/bedrock/app/uploads/sites/48/2024/06/zhl-hero-img-sm%402x-1.png"
               alt="Explore mortgage options with Zillow Home Loans"
-              className="h-auto w-full object-contain transition-transform duration-500 hover:scale-[1.03]"
+              className="h-auto w-full object-contain"
             />
           </div>
         </div>

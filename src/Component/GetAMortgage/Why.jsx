@@ -54,14 +54,14 @@ function Why() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group flex flex-col items-center text-center sm:items-start sm:text-left"
+              className="group flex flex-col items-center text-center"
             >
               {/* Icon */}
-              <div className="mb-7 flex h-20 w-20 items-center justify-center rounded-2xl bg-blue-50 transition-all duration-300 group-hover:scale-110 group-hover:bg-blue-100">
+              <div className="mb-7 flex items-center justify-center rounded-2xl">
                 <img
                   src={feature.image}
                   alt=""
-                  className="h-11 w-11 object-contain"
+                  className="h-40 w-40 object-contain"
                 />
               </div>
 

@@ -21,7 +21,7 @@ import FindYourAgentSection from "./Component/SeeYourOption/FindYourAgentSection
 import ForSaleByOwnerSection from "./Component/SeeYourOption/ForSaleByOwnerSection";
 import SellingResourcesSection from "./Component/SeeYourOption/SellingResourcesSection";
 import BuildSmartSelling from "./Component/SeeYourOption/BuildSmartSelling";
-import FrequentlyQuestion from "./Component/SeeYourOption/FrequentlyQuestion";
+import FrequentlyQuestion from "./Component/FrequentlyQuestion";
 
 // Pages
 import FindLocalAgent from "./Pages/FindLocalAgent";
@@ -31,6 +31,7 @@ import UpdatePage from "./Pages/UpdatePage";
 import Favorites from "./Pages/FavoritesPage";
 import Plan from "./Component/Plan/Plan";
 import Inbox from "./Pages/Inbox";
+import GetAMortgage from "./Pages/GetAMortgage";
 
 // Home Page
 function HomePage() {
@@ -174,6 +175,16 @@ function App() {
           element={
             <AppLayout>
               <Inbox/>
+            </AppLayout>
+          }
+        />
+
+        {/* Get A Mortgage Page*/}
+        <Route
+          path="/getAMortgage"
+          element={
+            <AppLayout>
+              <GetAMortgage/>
             </AppLayout>
           }
         />

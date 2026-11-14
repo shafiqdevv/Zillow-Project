@@ -140,7 +140,7 @@ export const navbarData = {
   },
 
   "Get a mortgage": {
-    link:'/',
+    link:'/getAMortgage',
     button: "Get a mortgage",
     iconSize: 16,
     buttonClass:
