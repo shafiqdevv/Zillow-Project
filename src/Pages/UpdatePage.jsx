@@ -10,7 +10,7 @@ export default function UpdatePage() {
           {/* Illustration */}
           <div className="mx-auto w-full max-w-[640px]">
             <img
-              src="PASTE_IMAGE_URL_HERE"
+              src="https://www.zillowstatic.com/bedrock/app/uploads/sites/10/2026/04/Updates.png"
               alt="Illustration of saved home search preferences and new home listings"
               className="h-auto w-full"
             />
