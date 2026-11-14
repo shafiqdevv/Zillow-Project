@@ -9,6 +9,8 @@ import LearnMore from "../Component/GetAMortgage/LearnMore";
 import Testimonials from "../Component/GetAMortgage/Testimonials";
 import Why from "../Component/GetAMortgage/Why";
 
+import mortgageQuestions from "../Component/GetAMortgage/mortgageQuestions";
+
 function GetAMortgage() {
   return (
     <div>
@@ -16,7 +18,7 @@ function GetAMortgage() {
         <Why/>
         <How/>
         <Find/>
-        <FrequentlyQuestion/>
+        <FrequentlyQuestion questions={mortgageQuestions} />
         <Testimonials/>
         <LearnMore/>
         <HomeLoansFooter/>

@@ -1,9 +1,9 @@
-import StartPlan from "./StartPlan";
-import FinancialSnapshot from "./FinancialSnapshot";
-import BuildYourTeam from "./BuildYourTeam";
-import UnderstandProcess from "./UnderstandProcess";
-import GetYourBuyAbility from "../GetYourBuyAbility/GetYourBuyAbility";
-import Footer from "../common/Footer";
+import StartPlan from "../Component/Plan/StartPlan";
+import FinancialSnapshot from "../Component/Plan/FinancialSnapshot";
+import BuildYourTeam from "../Component/Plan/BuildYourTeam";
+import UnderstandProcess from "../Component/Plan/UnderstandProcess";
+import GetYourBuyAbility from "../Component/GetYourBuyAbility/GetYourBuyAbility";
+import Footer from "../Component/common/Footer";
 
 export default function Plan() {
   return (

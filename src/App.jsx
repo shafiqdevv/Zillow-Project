@@ -1,14 +1,6 @@
 
 import { Route, Routes, useLocation } from "react-router-dom";
 
-// Home Components
-import Footer from "./Component/common/Footer";
-import HeroSection from "./Component/Home/HeroSection";
-import Section1 from "./Component/Home/Section1";
-import Section2 from "./Component/Home/Section2";
-import Section3 from "./Component/Home/Section3";
-import LastSection from "./Component/Home/LastSection";
-
 // Layout Components
 import SideBar from "./Component/common/SideBar";
 import NavBar from "./Component/Navbar/NavBar";
@@ -16,27 +8,14 @@ import NavBar from "./Component/Navbar/NavBar";
 // Pages
 import FindLocalAgent from "./Pages/FindLocalAgent";
 import Login from "./Pages/Login";
-import SellingPathSection from "./Component/SeeYourOption/SellingPathSection";
 import UpdatePage from "./Pages/UpdatePage";
 import Favorites from "./Pages/FavoritesPage";
-import Plan from "./Component/Plan/Plan";
+import Plan from "./Pages/Plan";
 import Inbox from "./Pages/Inbox";
 import GetAMortgage from "./Pages/GetAMortgage";
 import SeeYourOptionPage from "./Pages/SeeYourOption";
+import HomePage from "./Pages/HomePage";
 
-// Home Page
-function HomePage() {
-  return (
-    <>
-      <HeroSection />
-      <Section1 />
-      <Section2 />
-      <Section3 />
-      <LastSection />
-      <Footer />
-    </>
-  );
-}
 
 // Main Layout With Sidebar
 function AppLayout({ children }) {

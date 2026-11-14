@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import {
   titles,
   dropDownsContents,
-} from "../SeeYourOption/LastSectionData";
+} from "./LastSectionData";
 
 function LastSection() {
   const [isOpen, setIsOpen] = useState(false);
