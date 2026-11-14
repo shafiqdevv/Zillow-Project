@@ -19,7 +19,7 @@ const testimonials = [
   },
   {
     type: "image",
-    src: "/images/testimonial-1.jpg",
+    src: "https://www.zillowstatic.com/bedrock/app/uploads/sites/48/2025/05/youngwoman_flowers.svg",
     alt: "Happy Zillow Home Loans customer",
   },
   {
@@ -33,7 +33,7 @@ const testimonials = [
   },
   {
     type: "image",
-    src: "/images/testimonial-2.jpg",
+    src: "https://www.zillowstatic.com/bedrock/app/uploads/sites/48/2025/05/manwithwife_zhlphase2.png",
     alt: "Zillow Home Loans customer",
   },
   {
@@ -47,7 +47,7 @@ const testimonials = [
   },
   {
     type: "image",
-    src: "/images/testimonial-3.jpg",
+    src: "https://www.zillowstatic.com/bedrock/app/uploads/sites/48/2025/05/coupleoustidehouse.svg",
     alt: "Happy homeowner",
   },
 ];
@@ -63,8 +63,9 @@ function TestimonialCard({ item }) {
         <img
           src={item.src}
           alt={item.alt}
-          className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
           loading="lazy"
+          draggable="false"
+          className="h-full w-full select-none object-cover transition-transform duration-500 hover:scale-105"
         />
       </div>
     );
@@ -72,12 +73,12 @@ function TestimonialCard({ item }) {
 
   return (
     <div
-      className="flex h-full w-full flex-col justify-between rounded-[22px] p-7 text-white sm:p-8 lg:p-10"
+      className="flex h-full w-full flex-col justify-between rounded-[22px] p-7 text-white sm:p-8"
       style={{ backgroundColor: item.color }}
     >
       {/* Quote Icon */}
       <div
-        className="text-7xl font-black leading-[0.7]"
+        className="text-6xl font-black leading-[0.7] sm:text-7xl"
         style={{ color: item.quoteColor }}
         aria-hidden="true"
       >
@@ -85,12 +86,12 @@ function TestimonialCard({ item }) {
       </div>
 
       {/* Testimonial */}
-      <h3 className="my-6 text-lg font-bold leading-snug sm:text-xl lg:text-[22px]">
+      <h3 className="my-5 text-base font-bold leading-snug sm:text-lg">
         {item.quote}
       </h3>
 
       {/* Customer Info */}
-      <p className="text-sm font-medium text-white/90 sm:text-base">
+      <p className="text-sm font-bold text-white/90">
         {item.name} <span className="mx-1">|</span> {item.location}
       </p>
     </div>
@@ -102,48 +103,133 @@ function TestimonialCard({ item }) {
 // ==========================================
 
 function Testimonials() {
-  const containerRef = useRef(null);
-  const firstCardRef = useRef(null);
+  const sliderRef = useRef(null);
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const [slideDistance, setSlideDistance] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+
+  const dragData = useRef({
+    startX: 0,
+    scrollLeft: 0,
+    moved: false,
+  });
 
   const maxIndex = testimonials.length - 1;
 
-  // Calculate card width + gap responsively
+  // ==========================================
+  // UPDATE ACTIVE SLIDE
+  // ==========================================
+
+  const updateActiveIndex = () => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    const card = slider.querySelector(".testimonial-card");
+    if (!card) return;
+
+    const styles = window.getComputedStyle(card.parentElement);
+    const gap = parseFloat(styles.columnGap) || 18;
+
+    const distance = card.offsetWidth + gap;
+
+    const index = Math.round(slider.scrollLeft / distance);
+
+    setActiveIndex(Math.min(index, maxIndex));
+  };
+
+  // ==========================================
+  // MOUSE WHEEL SCROLL
+  // ==========================================
+
   useEffect(() => {
-    const updateDistance = () => {
-      if (!firstCardRef.current) return;
+    const slider = sliderRef.current;
+    if (!slider) return;
 
-      const cardWidth = firstCardRef.current.getBoundingClientRect().width;
-      const styles = window.getComputedStyle(firstCardRef.current.parentElement);
-      const gap = parseFloat(styles.columnGap) || 18;
-
-      setSlideDistance(cardWidth + gap);
+    const handleWheel = (e) => {
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        e.preventDefault();
+        slider.scrollLeft += e.deltaY;
+      }
     };
 
-    updateDistance();
+    slider.addEventListener("wheel", handleWheel, {
+      passive: false,
+    });
 
-    const observer = new ResizeObserver(updateDistance);
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    if (firstCardRef.current) {
-      observer.observe(firstCardRef.current);
-    }
-
-    return () => observer.disconnect();
+    return () => {
+      slider.removeEventListener("wheel", handleWheel);
+    };
   }, []);
 
-  const handleNext = () => {
-    setActiveIndex((prev) => Math.min(prev + 1, maxIndex));
+  // ==========================================
+  // MOUSE DRAG
+  // ==========================================
+
+  const handleMouseDown = (e) => {
+    if (e.button !== 0) return;
+
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    dragData.current = {
+      startX: e.clientX,
+      scrollLeft: slider.scrollLeft,
+      moved: false,
+    };
+
+    setIsDragging(true);
   };
 
-  const handlePrev = () => {
-    setActiveIndex((prev) => Math.max(prev - 1, 0));
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    const walk = e.clientX - dragData.current.startX;
+
+    if (Math.abs(walk) > 5) {
+      dragData.current.moved = true;
+    }
+
+    slider.scrollLeft = dragData.current.scrollLeft - walk;
   };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+    updateActiveIndex();
+  };
+
+  // ==========================================
+  // NAVIGATION
+  // ==========================================
+
+  const scrollSlider = (direction) => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    const card = slider.querySelector(".testimonial-card");
+    if (!card) return;
+
+    const styles = window.getComputedStyle(card.parentElement);
+    const gap = parseFloat(styles.columnGap) || 18;
+
+    const distance = card.offsetWidth + gap;
+
+    const nextIndex = Math.max(
+      0,
+      Math.min(activeIndex + direction, maxIndex)
+    );
+
+    slider.scrollTo({
+      left: nextIndex * distance,
+      behavior: "smooth",
+    });
+  };
+
+  // ==========================================
+  // RENDER
+  // ==========================================
 
   return (
     <section className="w-full overflow-hidden bg-white py-16 sm:py-20 lg:py-28">
@@ -151,39 +237,47 @@ function Testimonials() {
       <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-10">
 
         {/* Header */}
-        <div className="mb-10 flex flex-col justify-between gap-6 sm:mb-12 sm:flex-row sm:items-center">
+        <div className="mb-8 flex flex-col justify-between gap-5 sm:mb-10 sm:flex-row sm:items-center">
 
           <div>
-            <h2 className="text-3xl font-bold tracking-tight text-gray-950 sm:text-4xl lg:text-[42px]">
+            <h2 className="text-xl font-bold tracking-tight text-gray-950 md:text-4xl">
               Buyers like you{" "}
               <span className="mx-1 inline-block text-red-500">❤️</span>{" "}
               Zillow Home Loans
             </h2>
 
-            <p className="mt-4 text-base text-gray-800 sm:text-lg">
+            <p className="mt-3 text-sm font-medium text-gray-800 sm:text-base">
               Here's how happy homeowners made home a reality with our loan officers.
             </p>
           </div>
 
-          {/* Navigation */}
-          <div className="flex shrink-0 items-center gap-3">
+          {/* Navigation Buttons */}
+          <div className="flex shrink-0 items-center gap-2">
 
             <button
-              onClick={handlePrev}
-              disabled={activeIndex === 0}
+              onClick={() => scrollSlider(-1)}
               aria-label="Previous testimonials"
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-300 text-gray-900 transition-all duration-200 hover:bg-gray-100 disabled:cursor-not-allowed disabled:border-gray-200 disabled:text-gray-400 disabled:hover:bg-white"
+              className={`flex h-9 w-9 items-center justify-center rounded-full border transition-all duration-200
+                ${
+                  activeIndex === 0
+                    ? "border-gray-300 text-gray-400"
+                    : "border-gray-500 text-gray-950 hover:bg-gray-100"
+                }`}
             >
-              <ChevronLeft size={25} strokeWidth={2} />
+              <ChevronLeft size={20} strokeWidth={2} />
             </button>
 
             <button
-              onClick={handleNext}
-              disabled={activeIndex === maxIndex}
+              onClick={() => scrollSlider(1)}
               aria-label="Next testimonials"
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-400 text-gray-950 transition-all duration-200 hover:bg-gray-100 disabled:cursor-not-allowed disabled:border-gray-200 disabled:text-gray-400 disabled:hover:bg-white"
+              className={`flex h-9 w-9 items-center justify-center rounded-full border transition-all duration-200
+                ${
+                  activeIndex === maxIndex
+                    ? "border-gray-300 text-gray-400"
+                    : "border-gray-500 text-gray-950 hover:bg-gray-100"
+                }`}
             >
-              <ChevronRight size={25} strokeWidth={2} />
+              <ChevronRight size={20} strokeWidth={2} />
             </button>
 
           </div>
@@ -191,26 +285,27 @@ function Testimonials() {
 
         {/* Slider */}
         <div
-          ref={containerRef}
-          className="w-full overflow-hidden"
+          ref={sliderRef}
+          onScroll={updateActiveIndex}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+          className={`flex w-full overflow-x-auto overflow-y-hidden scrollbar-hide`}
+          style={{
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+            WebkitOverflowScrolling: "touch",
+          }}
         >
           <motion.div
-            className="flex gap-[18px]"
-            animate={{
-              x: -(activeIndex * slideDistance),
-            }}
-            transition={{
-              type: "spring",
-              stiffness: 100,
-              damping: 22,
-              mass: 0.8,
-            }}
+            className="mx-auto flex w-max gap-[18px]"
+            initial={false}
           >
             {testimonials.map((item, index) => (
               <div
                 key={index}
-                ref={index === 0 ? firstCardRef : null}
-                className="h-[380px] w-[82vw] max-w-[446px] shrink-0 sm:h-[400px] sm:w-[42vw] lg:h-[438px] lg:w-[31.5vw]"
+                className="testimonial-card h-70 w-[82vw] max-w-80 shrink-0"
               >
                 <TestimonialCard item={item} />
               </div>
