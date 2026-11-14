@@ -1,6 +1,6 @@
 
 import Footer from "../Component/common/Footer";
-import FrequentlyQuestion from "../Component/FrequentlyQuestion";
+import FrequentlyQuestion from "../Component/common/FrequentlyQuestion";
 import Find from "../Component/GetAMortgage/Find";
 import Get from "../Component/GetAMortgage/Get";
 import HomeLoansFooter from "../Component/GetAMortgage/HomeLoansFooter";

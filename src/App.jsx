@@ -13,16 +13,6 @@ import LastSection from "./Component/Home/LastSection";
 import SideBar from "./Component/common/SideBar";
 import NavBar from "./Component/Navbar/NavBar";
 
-// Selling Options Components
-import SellingOptionsHero from "./Component/SeeYourOption/SellingOptionsHero";
-import PartnerAgentBenefits from "./Component/SeeYourOption/PartnerAgentBenefits";
-import CashOfferSection from "./Component/SeeYourOption/CashOfferSection";
-import FindYourAgentSection from "./Component/SeeYourOption/FindYourAgentSection";
-import ForSaleByOwnerSection from "./Component/SeeYourOption/ForSaleByOwnerSection";
-import SellingResourcesSection from "./Component/SeeYourOption/SellingResourcesSection";
-import BuildSmartSelling from "./Component/SeeYourOption/BuildSmartSelling";
-import FrequentlyQuestion from "./Component/FrequentlyQuestion";
-
 // Pages
 import FindLocalAgent from "./Pages/FindLocalAgent";
 import Login from "./Pages/Login";
@@ -32,6 +22,7 @@ import Favorites from "./Pages/FavoritesPage";
 import Plan from "./Component/Plan/Plan";
 import Inbox from "./Pages/Inbox";
 import GetAMortgage from "./Pages/GetAMortgage";
+import SeeYourOptionPage from "./Pages/SeeYourOption";
 
 // Home Page
 function HomePage() {
@@ -44,24 +35,6 @@ function HomePage() {
       <LastSection />
       <Footer />
     </>
-  );
-}
-
-// Selling Options Page
-function SeeYourOptionPage() {
-  return (
-    <div className="md:px-30">
-      <SellingOptionsHero />
-      <PartnerAgentBenefits />
-      <CashOfferSection />
-      <FindYourAgentSection />
-      <ForSaleByOwnerSection />
-      <SellingResourcesSection />
-      <BuildSmartSelling />
-      <FrequentlyQuestion />
-      <SellingPathSection/>
-      <Footer/>
-    </div>
   );
 }
 

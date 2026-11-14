@@ -1,5 +1,5 @@
 
-import GetYourBuyAbility from "../GetYourBuyAbility";
+import GetYourBuyAbility from "../GetYourBuyAbility/GetYourBuyAbility";
 
 const images = [
   {
