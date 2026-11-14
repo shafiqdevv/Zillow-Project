@@ -1,4 +1,4 @@
-import Footer from "../Component/Footer";
+import Footer from "../Component/common/Footer";
 
 export default function Inbox() {
   return (

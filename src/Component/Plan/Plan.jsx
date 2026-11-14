@@ -3,7 +3,7 @@ import FinancialSnapshot from "./FinancialSnapshot";
 import BuildYourTeam from "./BuildYourTeam";
 import UnderstandProcess from "./UnderstandProcess";
 import GetYourBuyAbility from "../GetYourBuyAbility";
-import Footer from "../Footer";
+import Footer from "../common/Footer";
 
 export default function Plan() {
   return (

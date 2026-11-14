@@ -1,4 +1,23 @@
-
+export const footerLinks = [
+  "About",
+  "Zestimates",
+  "News",
+  "Research",
+  "Careers",
+  "Applicant Privacy Notice",
+  "Help",
+  "Advertise",
+  "Fair Housing Guide",
+  "Advocacy",
+  "Terms of use",
+  "Privacy Notice",
+  "Ad Choices",
+  "Cookie Preference",
+  "Learn",
+  "AI",
+  "Mobile Apps",
+];
+export const companyLinks = ["Trulia", "StreetEasy", "HotPads", "Out East"];
 import {
   FaFacebook,
   FaInstagram,
@@ -7,10 +26,47 @@ import {
   FaGooglePlay,
 } from "react-icons/fa";
 import { FaHouse } from "react-icons/fa6";
+import { ArrowRight } from "lucide-react";
 
 function Footer() {
   return (
     <footer className="w-full bg-white text-gray-700">
+      {/* Footer Links */}
+      <div className="border-b border-gray-300 px-4 py-7">
+        <div className="mx-auto flex max-w-6xl flex-wrap justify-center gap-x-5 gap-y-4">
+          {footerLinks.map((link) => (
+            <a
+              key={link}
+              href="#"
+              className="text-sm text-gray-700 transition-colors hover:text-[#006AFF] hover:underline"
+            >
+              {link}
+            </a>
+          ))}
+        </div>
+
+        <div className="mt-5 flex flex-wrap justify-center gap-x-6 gap-y-3">
+          {companyLinks.map((link) => (
+            <a
+              key={link}
+              href="#"
+              className="text-sm text-gray-700 transition-colors hover:text-[#006AFF] hover:underline"
+            >
+              {link}
+            </a>
+          ))}
+        </div>
+
+        <div className="mt-7 text-center">
+          <a
+            href="#"
+            className="inline-flex items-center gap-1 text-sm font-medium text-[#006AFF] hover:underline"
+          >
+            Do Not Sell or Share My Personal Information
+            <ArrowRight size={15} />
+          </a>
+        </div>
+      </div>
       {/* Legal Information */}
       <div className="border-b border-gray-300 px-4 py-8">
         <div className="mx-auto max-w-3xl text-center text-[11px] leading-[1.7] text-gray-500 sm:text-xs">

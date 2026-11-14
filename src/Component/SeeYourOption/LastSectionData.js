@@ -1,23 +1,3 @@
-export const companyLinks = ["Trulia", "StreetEasy", "HotPads", "Out East"];
-export const footerLinks = [
-  "About",
-  "Zestimates",
-  "News",
-  "Research",
-  "Careers",
-  "Applicant Privacy Notice",
-  "Help",
-  "Advertise",
-  "Fair Housing Guide",
-  "Advocacy",
-  "Terms of use",
-  "Privacy Notice",
-  "Ad Choices",
-  "Cookie Preference",
-  "Learn",
-  "AI",
-  "Mobile Apps",
-];
 export const titles = [
   "Real Estate",
   "Rentals",

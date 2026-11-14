@@ -1,11 +1,9 @@
 
-import { ChevronDown, ArrowRight } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import {
   titles,
   dropDownsContents,
-  footerLinks,
-  companyLinks,
 } from "../SeeYourOption/LastSectionData";
 
 function LastSection() {
@@ -115,43 +113,6 @@ function LastSection() {
               )}
             </div>
           ))}
-        </div>
-      </div>
-
-      {/* Footer Links */}
-      <div className="border-b border-gray-300 px-4 py-7">
-        <div className="mx-auto flex max-w-6xl flex-wrap justify-center gap-x-5 gap-y-4">
-          {footerLinks.map((link) => (
-            <a
-              key={link}
-              href="#"
-              className="text-sm text-gray-700 transition-colors hover:text-[#006AFF] hover:underline"
-            >
-              {link}
-            </a>
-          ))}
-        </div>
-
-        <div className="mt-5 flex flex-wrap justify-center gap-x-6 gap-y-3">
-          {companyLinks.map((link) => (
-            <a
-              key={link}
-              href="#"
-              className="text-sm text-gray-700 transition-colors hover:text-[#006AFF] hover:underline"
-            >
-              {link}
-            </a>
-          ))}
-        </div>
-
-        <div className="mt-7 text-center">
-          <a
-            href="#"
-            className="inline-flex items-center gap-1 text-sm font-medium text-[#006AFF] hover:underline"
-          >
-            Do Not Sell or Share My Personal Information
-            <ArrowRight size={15} />
-          </a>
         </div>
       </div>
     </div>

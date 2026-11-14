@@ -2,7 +2,7 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 
 // Home Components
-import Footer from "./Component/Footer";
+import Footer from "./Component/common/Footer";
 import HeroSection from "./Component/Home/HeroSection";
 import Section1 from "./Component/Home/Section1";
 import Section2 from "./Component/Home/Section2";
