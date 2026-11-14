@@ -96,7 +96,7 @@ export default function BuildYourTeam() {
 
         <button
           type="button"
-          className="mt-4 flex h-8 w-full items-center justify-center rounded-lg border border-[#A5A8B5] text-xs font-semibold text-black transition-colors hover:bg-gray-50"
+          className="mt-4 flex h-8 w-full items-center justify-center rounded-lg border border-[#A5A8B5] font-semibold text-black transition-colors hover:bg-gray-50"
         >
           Find an agent
         </button>

@@ -207,12 +207,12 @@ export default function FinancialSnapshot() {
         </h3>
 
         {/* Market Index */}
-        <div className="rounded-2xl border border-[#D1D1D8] px-5 py-5 sm:px-8 sm:py-6">
+        <div className="rounded-2xl border border-[#D1D1D8] px-5 py-5">
           <h4 className="text-lg font-semibold text-black sm:text-xl">
             Neutral market
           </h4>
 
-          <div className="mt-5 flex items-baseline">
+          <div className="flex items-baseline">
             <span className="text-3xl font-bold text-black">
               ---
             </span>
@@ -251,13 +251,13 @@ export default function FinancialSnapshot() {
           {marketStats.map((stat, index) => (
             <div
               key={index}
-              className="flex min-h-[115px] flex-col justify-center rounded-2xl bg-[#EEEEF0] px-5 py-4 sm:px-6"
+              className="flex min-h-20 flex-col justify-center rounded-2xl bg-[#EEEEF0] px-5"
             >
               <h4 className="text-2xl font-bold text-black sm:text-[27px]">
                 {stat.value}
               </h4>
 
-              <p className="mt-3 text-base leading-snug text-black sm:text-lg">
+              <p className="text-base leading-snug text-black sm:text-lg">
                 {stat.label}
               </p>
             </div>
@@ -267,7 +267,7 @@ export default function FinancialSnapshot() {
         {/* Add Location */}
         <button
           type="button"
-          className="mt-5 flex min-h-[65px] w-full items-center justify-center rounded-2xl border border-[#0055FF] px-4 text-lg font-bold text-[#0055FF] transition-colors hover:bg-blue-50 sm:text-xl"
+          className="mt-5 flex min-h-13 w-full items-center justify-center rounded-2xl border border-[#0055FF] px-4 text-lg font-bold text-[#0055FF] transition-colors hover:bg-blue-50 sm:text-xl"
         >
           Add location
         </button>

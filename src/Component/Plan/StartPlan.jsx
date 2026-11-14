@@ -95,19 +95,19 @@ export default function StartPlan() {
           Still figuring it out?
         </h2>
 
-        <p className="mt-2 text-xs leading-[1.5] text-white sm:text-[13px]">
+        <p className="mt-2 text-xs leading-[1.5] text-white sm:text-[16px]">
           Tell us what you'd like to explore, and we'll tailor steps you can
           take at your pace.
         </p>
 
         <button
           type="button"
-          className="mt-3 h-[38px] w-full rounded-lg bg-white px-4 text-xs font-semibold text-[#0647D9] transition-colors hover:bg-gray-100"
+          className="mt-3 h-[38px] w-full rounded-lg bg-white px-4 font-semibold text-[#0647D9] transition-colors hover:bg-gray-100"
         >
           Start with a plan
         </button>
 
-        <p className="mt-3 text-center text-xs">
+        <p className="mt-3 text-center">
           Already have a plan?{" "}
           <button
             type="button"

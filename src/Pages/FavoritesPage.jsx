@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../Component/Home/Footer";
 
 function FavoriteCardsIllustration() {
   return (
@@ -42,10 +43,7 @@ function FavoriteCardsIllustration() {
           <rect width="270" height="205" fill="#fff0df" />
           <circle cx="35" cy="175" r="38" fill="#ffcbbd" />
           <path d="M-5 176 Q45 130 90 177 L90 210 H-5Z" fill="#0a6258" />
-          <path
-            d="M60 95 L150 38 L250 90 L250 205 L60 205Z"
-            fill="#ffcab9"
-          />
+          <path d="M60 95 L150 38 L250 90 L250 205 L60 205Z" fill="#ffcab9" />
           <path
             d="M45 95 L150 30 L265 90 L265 112 L150 62 L58 119Z"
             fill="#17151b"
@@ -77,10 +75,7 @@ function FavoriteCardsIllustration() {
         <g clipPath="url(#home-card-art)">
           <rect width="270" height="205" fill="#fff0df" />
           <path d="M-10 160 Q30 115 75 163 L75 215 H-10Z" fill="#ffcbbd" />
-          <path
-            d="M45 92 L145 35 L250 88 L250 205 L45 205Z"
-            fill="#ffcaad"
-          />
+          <path d="M45 92 L145 35 L250 88 L250 205 L45 205Z" fill="#ffcaad" />
           <path
             d="M30 100 L145 25 L263 88 L263 110 L145 57 L42 125Z"
             fill="#17151b"
@@ -113,10 +108,7 @@ function FavoriteCardsIllustration() {
           <rect width="270" height="205" fill="#fff0df" />
           <circle cx="42" cy="164" r="42" fill="#ffcbbd" />
           <path d="M0 185 Q42 140 86 190 L86 215 H0Z" fill="#075b50" />
-          <path
-            d="M45 95 L150 32 L260 92 L260 205 L45 205Z"
-            fill="#ffcfb8"
-          />
+          <path d="M45 95 L150 32 L260 92 L260 205 L45 205Z" fill="#ffcfb8" />
           <path
             d="M30 105 L150 24 L270 91 L270 112 L150 58 L40 130Z"
             fill="#17151b"
@@ -148,10 +140,7 @@ function FavoriteCardsIllustration() {
           <rect width="270" height="205" fill="#fff0df" />
           <circle cx="26" cy="166" r="40" fill="#ffd0c0" />
           <path d="M0 175 Q37 140 80 180 L80 215 H0Z" fill="#075b50" />
-          <path
-            d="M48 83 L150 35 L246 88 L246 205 L48 205Z"
-            fill="#df4b16"
-          />
+          <path d="M48 83 L150 35 L246 88 L246 205 L48 205Z" fill="#df4b16" />
           <path
             d="M35 93 L150 20 L265 90 L265 112 L150 57 L45 125Z"
             fill="#17151b"
@@ -189,35 +178,36 @@ function FavoriteCardsIllustration() {
 
 export default function Favorites() {
   return (
-    <section className="w-full bg-[#f8f8f8]">
-      <div className="mx-auto grid min-h-[620px] max-w-[1440px] grid-cols-1 items-center gap-10 px-6 py-16 sm:px-10 lg:min-h-[720px] lg:grid-cols-2 lg:gap-12 lg:px-16 xl:px-20">
+    <div>
+      <section className="w-full bg-[#f8f8f8]">
+        <div className="mx-auto grid min-h-[620px] max-w-[1440px] grid-cols-1 items-center gap-10 px-6 py-16 sm:px-10 lg:min-h-[720px] lg:grid-cols-2 lg:gap-12 lg:px-16 xl:px-20">
+          {/* Left content */}
+          <div className="mx-auto w-full max-w-[490px] lg:mx-0">
+            <h2 className="max-w-[490px] text-[34px] font-extrabold leading-[1.08] tracking-[-1.2px] text-[#111111] sm:text-[40px]">
+              Ready to move beyond searching?
+            </h2>
 
-        {/* Left content */}
-        <div className="mx-auto w-full max-w-[490px] lg:mx-0">
-          <h2 className="max-w-[490px] text-[34px] font-extrabold leading-[1.08] tracking-[-1.2px] text-[#111111] sm:text-[40px]">
-            Ready to move beyond searching?
-          </h2>
+            <p className="mt-10 max-w-[455px] text-[17px] leading-[1.7] text-[#171717] sm:text-[19px]">
+              Favorites is where you can organize and compare the homes you’re
+              interested in. Sign in to see the homes you’ve saved and keep
+              track of what you want to explore next.
+            </p>
 
-          <p className="mt-10 max-w-[455px] text-[17px] leading-[1.7] text-[#171717] sm:text-[19px]">
-            Favorites is where you can organize and compare the homes you’re
-            interested in. Sign in to see the homes you’ve saved and keep track
-            of what you want to explore next.
-          </p>
+            <button
+              type="button"
+              className="mt-10 h-[68px] w-full max-w-[288px] rounded-[15px] bg-[#0647d9] text-[18px] font-bold text-white transition-colors duration-200 hover:bg-[#0035b3] focus:outline-none focus:ring-4 focus:ring-blue-200"
+            >
+              Sign in
+            </button>
+          </div>
 
-          <button
-            type="button"
-            className="mt-10 h-[68px] w-full max-w-[288px] rounded-[15px] bg-[#0647d9] text-[18px] font-bold text-white transition-colors duration-200 hover:bg-[#0035b3] focus:outline-none focus:ring-4 focus:ring-blue-200"
-          >
-            Sign in
-          </button>
+          {/* Right illustration */}
+          <div className="mx-auto flex w-full max-w-[760px] items-center justify-center lg:justify-end">
+            <FavoriteCardsIllustration />
+          </div>
         </div>
-
-        {/* Right illustration */}
-        <div className="mx-auto flex w-full max-w-[760px] items-center justify-center lg:justify-end">
-          <FavoriteCardsIllustration />
-        </div>
-
-      </div>
-    </section>
+      </section>
+      <Footer />
+    </div>
   );
 }

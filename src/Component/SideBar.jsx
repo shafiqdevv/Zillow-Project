@@ -1,5 +1,5 @@
 
-import { Search } from "lucide-react";
+import { Search, House } from "lucide-react";
 import { BsSearchHeartFill } from "react-icons/bs";
 import { MdFavorite } from "react-icons/md";
 import {
@@ -12,11 +12,12 @@ import { NavLink } from "react-router-dom";
 
 function SideBar() {
   const items = [
-    { icon: Search, label: "Search", link:'' },
-    { icon: BsSearchHeartFill, label: "Updates", link:'/updatePage' },
-    { icon: MdFavorite, label: "Saved", link:'/favoritesPage' },
-    { icon: RiHome6Fill, label: "Plan", link:'/plan' },
-    { icon: RiInboxArchiveFill, label: "Inbox", link:'/inbox' },
+    { icon: House, label: "Home", link: "/" },
+    { icon: Search, label: "Search", link: "/search" },
+    { icon: BsSearchHeartFill, label: "Updates", link: "/updatePage" },
+    { icon: MdFavorite, label: "Favorites", link: "/favoritesPage" },
+    { icon: RiHome6Fill, label: "Plan", link: "/plan" },
+    { icon: RiInboxArchiveFill, label: "Inbox", link: "/inbox" },
   ];
 
   return (
@@ -28,19 +29,36 @@ function SideBar() {
     >
       {items.map((item, index) => {
         const Icon = item.icon;
+
         return (
-          <NavLink to={item.link}
+          <NavLink
+            to={item.link}
             key={index}
+            end={item.link === "/"}
             className="group flex cursor-pointer flex-col items-center gap-1"
           >
-            <Icon
-              size={25}
-              className="text-gray-700 transition-colors duration-200 group-hover:text-blue-700 sm:size-7"
-            />
+            {({ isActive }) => (
+              <>
+                <Icon
+                  size={25}
+                  className={`transition-colors duration-200 sm:size-7 ${
+                    isActive
+                      ? "text-blue-700"
+                      : "text-gray-700 group-hover:text-blue-700"
+                  }`}
+                />
 
-            <p className="select-none text-xs text-gray-700 transition-colors group-hover:text-blue-700 sm:text-sm">
-              {item.label}
-            </p>
+                <p
+                  className={`select-none text-xs transition-colors sm:text-sm ${
+                    isActive
+                      ? "text-blue-700"
+                      : "text-gray-700 group-hover:text-blue-700"
+                  }`}
+                >
+                  {item.label}
+                </p>
+              </>
+            )}
           </NavLink>
         );
       })}

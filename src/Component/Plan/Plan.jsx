@@ -7,9 +7,9 @@ import UnderstandProcess from "./UnderstandProcess";
 export default function Plan() {
   return (
     <section className="w-full bg-white">
-      <div className="mx-auto max-w-[880px] px-4 py-6">
+      <div className="mx-auto max-w-[880px] py-2">
 
-        <h1 className="mb-4 text-2xl font-bold text-black">
+        <h1 className="mb-4 text-4xl font-bold text-black">
           Plan
         </h1>
 
