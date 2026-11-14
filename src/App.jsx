@@ -10,7 +10,7 @@ import Section3 from "./Component/Home/Section3";
 import LastSection from "./Component/Home/LastSection";
 
 // Layout Components
-import SideBar from "./Component/SideBar";
+import SideBar from "./Component/common/SideBar";
 import NavBar from "./Component/Navbar/NavBar";
 
 // Selling Options Components
