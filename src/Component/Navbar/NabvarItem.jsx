@@ -3,6 +3,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import { navbarData } from "./NavbarData";
+import { NavLink } from "react-router-dom";
 
 function NavbarItems({ title }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +23,8 @@ function NavbarItems({ title }) {
     >
       {/* Navigation Button */}
 
-      <button
+      <NavLink
+        to={item.link}
         onClick={() => setIsOpen((prev) => !prev)}
         aria-expanded={item.ariaExpanded ? isOpen : undefined}
         className={item.buttonClass}
@@ -35,7 +37,7 @@ function NavbarItems({ title }) {
             isOpen ? "rotate-180" : ""
           }`}
         />
-      </button>
+      </NavLink>
 
       {/* Dropdown */}
 

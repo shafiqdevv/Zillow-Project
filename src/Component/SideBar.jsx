@@ -8,14 +8,15 @@ import {
 } from "react-icons/ri";
 
 import { motion } from "motion/react";
+import { NavLink } from "react-router-dom";
 
 function SideBar() {
   const items = [
-    { icon: Search, label: "Search" },
-    { icon: BsSearchHeartFill, label: "Updates" },
-    { icon: MdFavorite, label: "Saved" },
-    { icon: RiHome6Fill, label: "Plan" },
-    { icon: RiInboxArchiveFill, label: "Inbox" },
+    { icon: Search, label: "Search", link:'' },
+    { icon: BsSearchHeartFill, label: "Updates", link:'/updatePage' },
+    { icon: MdFavorite, label: "Saved", link:'/favoritesPage' },
+    { icon: RiHome6Fill, label: "Plan", link:'/plan' },
+    { icon: RiInboxArchiveFill, label: "Inbox", link:'/inbox' },
   ];
 
   return (
@@ -27,9 +28,8 @@ function SideBar() {
     >
       {items.map((item, index) => {
         const Icon = item.icon;
-
         return (
-          <div
+          <NavLink to={item.link}
             key={index}
             className="group flex cursor-pointer flex-col items-center gap-1"
           >
@@ -41,7 +41,7 @@ function SideBar() {
             <p className="select-none text-xs text-gray-700 transition-colors group-hover:text-blue-700 sm:text-sm">
               {item.label}
             </p>
-          </div>
+          </NavLink>
         );
       })}
     </motion.div>

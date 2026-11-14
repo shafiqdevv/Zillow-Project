@@ -1,6 +1,7 @@
 
 export const navbarData = {
   Buy: {
+    link:'/',
     button: "Buy",
     iconSize: 15,
     buttonClass: `
@@ -52,6 +53,7 @@ export const navbarData = {
   },
 
   Rent: {
+    link:'/',
     button: "Rent",
     iconSize: 15,
     buttonClass: `
@@ -104,6 +106,7 @@ export const navbarData = {
   },
 
   Sell: {
+    link:'/seeYourOption',
     button: "Sell",
     iconSize: 16,
     buttonClass:
@@ -137,6 +140,7 @@ export const navbarData = {
   },
 
   "Get a mortgage": {
+    link:'/',
     button: "Get a mortgage",
     iconSize: 16,
     buttonClass:
@@ -180,6 +184,7 @@ export const navbarData = {
   },
 
   "Find an agent": {
+    link:'/',
     button: "Find an agent",
     iconSize: 16,
     buttonClass:
@@ -216,6 +221,7 @@ export const navbarData = {
   },
 
   "Manage rentals": {
+    link:'/',
     button: "Manage rentals",
     iconSize: 16,
     buttonClass:

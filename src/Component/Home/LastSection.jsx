@@ -1,18 +1,50 @@
-import { ChevronDown, ArrowRight } from "lucide-react";
-import { useState } from "react";
-import { titles, dropDownsContents, footerLinks, companyLinks } from "../SeeYourOption/LastSectionData";
 
+import { ChevronDown, ArrowRight } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import {
+  titles,
+  dropDownsContents,
+  footerLinks,
+  companyLinks,
+} from "../SeeYourOption/LastSectionData";
 
 function LastSection() {
   const [isOpen, setIsOpen] = useState(false);
-
   const [activeItem, setActiveItem] = useState("none");
+
+  const dropdownRef = useRef(null);
+
   const activeContent = dropDownsContents[activeItem];
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target)
+      ) {
+        setIsOpen(false);
+        setActiveItem("none");
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   function handleClick(item) {
-    setActiveItem(item);
-    setIsOpen((prev) => !prev);
+    if (activeItem === item && isOpen) {
+      setIsOpen(false);
+      setActiveItem("none");
+    } else {
+      setActiveItem(item);
+      setIsOpen(true);
+    }
   }
+
   return (
     <div>
       {/* Recommendations */}
@@ -30,21 +62,25 @@ function LastSection() {
       </div>
 
       {/* Main Navigation */}
-      <div className="border-gray-300 px-4 py-8">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-y-6 sm:grid-cols-4 sm:gap-0 p-3">
+      <div
+        ref={dropdownRef}
+        className="border-gray-300 px-4 py-8"
+      >
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-y-6 p-3 sm:grid-cols-4 sm:gap-0">
           {titles.map((title, index) => (
             <div
               key={index}
-              className={`flex flex-col items-center relative ${
+              className={`relative flex flex-col items-center ${
                 index !== 0 ? "sm:border-l sm:border-gray-300" : ""
               }`}
             >
               <button
                 onClick={() => handleClick(title)}
                 type="button"
-                className="flex z-1 bg-blue-100 py-1 px-2 rounded-lg items-center gap-1 cursor-pointer text-base font-medium text-gray-900 transition-colors hover:text-[#006AFF]"
+                className="z-[1] flex cursor-pointer items-center gap-1 rounded-lg bg-blue-100 px-2 py-1 text-base font-medium text-gray-900 transition-colors hover:text-[#006AFF]"
               >
                 {title}
+
                 <ChevronDown
                   size={15}
                   className={`transition-transform duration-100 ${
@@ -55,12 +91,21 @@ function LastSection() {
 
               {/* Dropdown */}
               {activeItem === title && isOpen && (
-                <ul className="absolute top-9 z-2 h-100 bg-white shadow-lg overscroll-contain overflow-y-auto flex flex-col items-center gap-1">
-                  {activeContent.map((dropDown) => (
-                    <div className="flex flex-col items-center py-5">
-                      <h1 className="text-xl mb-5 font-bold text-gray-700">{dropDown.title}</h1>
-                      {dropDown.links.map((link) => (
-                        <li className="underline mx-8 text-blue-700 cursor-pointer hover:text-black">
+                <ul className="absolute top-9 z-[2] flex h-100 flex-col items-center gap-1 overflow-y-auto overscroll-contain bg-white shadow-lg">
+                  {activeContent?.map((dropDown, dropdownIndex) => (
+                    <div
+                      key={dropdownIndex}
+                      className="flex flex-col items-center py-5"
+                    >
+                      <h1 className="mb-5 text-xl font-bold text-gray-700">
+                        {dropDown.title}
+                      </h1>
+
+                      {dropDown.links.map((link, linkIndex) => (
+                        <li
+                          key={linkIndex}
+                          className="mx-8 cursor-pointer text-blue-700 underline hover:text-black"
+                        >
                           {link}
                         </li>
                       ))}
@@ -112,4 +157,5 @@ function LastSection() {
     </div>
   );
 }
+
 export default LastSection;

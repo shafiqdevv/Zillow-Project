@@ -27,6 +27,10 @@ import FrequentlyQuestion from "./Component/SeeYourOption/FrequentlyQuestion";
 import FindLocalAgent from "./Pages/FindLocalAgent";
 import Login from "./Pages/Login";
 import SellingPathSection from "./Component/SeeYourOption/SellingPathSection";
+import UpdatePage from "./Pages/UpdatePage";
+import Favorites from "./Pages/FavoritesPage";
+import Plan from "./Component/Plan/Plan";
+import Inbox from "./Pages/Inbox";
 
 // Home Page
 function HomePage() {
@@ -131,6 +135,47 @@ function App() {
         <Route
           path="/login"
           element={<Login />}
+        />
+
+        {/* Update Page */}
+        <Route
+          path="/updatePage"
+          element={
+            <AppLayout>
+              <UpdatePage />
+            </AppLayout>
+          }
+        />
+
+        {/* Favorite Page */}
+        <Route
+          path="/favoritesPage"
+          element={
+            <AppLayout>
+              <Favorites />
+            </AppLayout>
+          }
+        />
+
+        {/* Plan page */}
+        <Route
+          path="/plan"
+          element={
+            <AppLayout>
+              <Plan />
+            </AppLayout>
+          }
+        />
+
+
+        {/* Inbox Page */}
+        <Route
+          path="/inbox"
+          element={
+            <AppLayout>
+              <Inbox/>
+            </AppLayout>
+          }
         />
 
       </Routes>
