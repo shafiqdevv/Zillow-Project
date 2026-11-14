@@ -1,8 +1,8 @@
 import StartPlan from "./StartPlan";
 import FinancialSnapshot from "./FinancialSnapshot";
-import HomeLoans from "./HomeLoans";
 import BuildYourTeam from "./BuildYourTeam";
 import UnderstandProcess from "./UnderstandProcess";
+import GetYourBuyAbility from "../GetYourBuyAbility";
 
 export default function Plan() {
   return (
@@ -19,7 +19,7 @@ export default function Plan() {
           <div className="flex min-w-0 flex-col gap-4">
             <StartPlan />
             <FinancialSnapshot />
-            <HomeLoans />
+            <GetYourBuyAbility/>
           </div>
 
           {/* Right Column */}
