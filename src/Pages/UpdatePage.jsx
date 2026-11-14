@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "../Component/Home/Footer";
+import Footer from "../Component/Footer";
 
 function ListingsIllustration() {
   return (
@@ -148,8 +148,11 @@ export default function UpdatePage() {
     <div>
       <section className="w-full bg-[#f7f7f7] px-6 py-16 sm:px-10 lg:px-16 lg:py-24">
         <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="mx-auto w-full max-w-[640px]">
+            <ListingsIllustration />
+          </div>
           <div className="max-w-[430px]">
-            <h2 className="text-[30px] font-extrabold leading-[1.12] tracking-[-0.7px] text-[#111111] sm:text-[36px]">
+            <h2 className="text-2xl font-extrabold text-[#111111]">
               Check out new listings
               <br />
               you’ll love
@@ -171,9 +174,7 @@ export default function UpdatePage() {
             </button>
           </div>
 
-          <div className="mx-auto w-full max-w-[640px]">
-            <ListingsIllustration />
-          </div>
+          
         </div>
       </section>
       <Footer />

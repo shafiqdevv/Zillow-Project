@@ -3,13 +3,15 @@ import FinancialSnapshot from "./FinancialSnapshot";
 import BuildYourTeam from "./BuildYourTeam";
 import UnderstandProcess from "./UnderstandProcess";
 import GetYourBuyAbility from "../GetYourBuyAbility";
+import Footer from "../Footer";
 
 export default function Plan() {
   return (
-    <section className="w-full bg-white">
-      <div className="mx-auto max-w-[880px] py-2">
+    <div>
+      <section className="w-full bg-white">
+      <div className="mx-auto max-w-220 p-2">
 
-        <h1 className="mb-4 text-4xl font-bold text-black">
+        <h1 className="mb-4 text-4xl font-bold text-black mt-15">
           Plan
         </h1>
 
@@ -31,5 +33,7 @@ export default function Plan() {
         </div>
       </div>
     </section>
+    <Footer/>
+    </div>
   );
 }

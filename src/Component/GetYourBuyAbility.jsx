@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import PopUp from "./Home/PopUp";
+import PopUp from "./PopUp";
 
 function GetYourBuyAbility() {
   const [showPopup, setShowPopup] = useState(false);
