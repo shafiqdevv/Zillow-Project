@@ -2,13 +2,26 @@
 import { useEffect, useRef, useState } from "react";
 import { SearchIcon, MapPin, LoaderCircle, X } from "lucide-react";
 
-function Search() {
+function Search({ size = "large" }) {
   const [location, setLocation] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   const searchRef = useRef(null);
+
+  // Dynamic styles based on size
+  const isSmall = size === "small";
+
+  const containerStyle = isSmall
+    ? "max-w-[380px] mt-2"
+    : "max-w-[520px] mt-8";
+
+  const inputStyle = isSmall
+    ? "h-12 px-4 pr-12 text-sm"
+    : "h-20 px-5 pr-16 text-base sm:text-lg";
+
+  const iconStyle = isSmall ? 20 : 25;
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -84,18 +97,19 @@ function Search() {
   };
 
   return (
-    <div ref={searchRef} className="relative mt-8 w-full max-w-[520px]">
-
+    <div
+      ref={searchRef}
+      className={`relative w-full ${containerStyle}`}
+    >
       {/* Search Input */}
       <div className="relative flex items-center">
-
         <input
           type="text"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
           onFocus={() => setIsOpen(true)}
           placeholder="Enter an address, neighborhood, city, or ZIP code"
-          className="h-20 w-full rounded-xl border border-gray-300 bg-white px-5 pr-16 text-base text-gray-900 shadow-lg outline-none transition-all placeholder:text-gray-500 focus:border-[#006AFF] focus:ring-2 focus:ring-blue-200 sm:text-lg"
+          className={`w-full rounded-xl border border-gray-300 bg-white text-gray-900 shadow-lg outline-none transition-all placeholder:text-gray-500 focus:border-[#006AFF] focus:ring-2 focus:ring-blue-200 ${inputStyle}`}
         />
 
         {location ? (
@@ -105,44 +119,51 @@ function Search() {
             aria-label="Clear search"
             className="absolute right-5 text-gray-500 hover:text-gray-900"
           >
-            <X size={22} />
+            <X size={isSmall ? 18 : 22} />
           </button>
         ) : (
           <SearchIcon
-            size={25}
+            size={iconStyle}
             className="absolute right-5 text-gray-700"
           />
         )}
-
       </div>
 
       {/* Dropdown */}
       {isOpen && (
         <div className="absolute left-0 top-full z-50 mt-2 w-full overflow-hidden rounded-xl border border-gray-200 bg-white py-2 shadow-xl">
-
           <button
             type="button"
             onClick={handleCurrentLocation}
             disabled={loading}
-            className="flex w-full items-center gap-4 px-5 py-4 text-left transition-colors hover:bg-gray-100 disabled:cursor-wait disabled:opacity-60"
+            className={`flex w-full items-center text-left transition-colors hover:bg-gray-100 disabled:cursor-wait disabled:opacity-60 ${
+              isSmall ? "gap-3 px-4 py-3" : "gap-4 px-5 py-4"
+            }`}
           >
-
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-blue-50">
+            <div
+              className={`flex shrink-0 items-center justify-center rounded-full bg-blue-50 ${
+                isSmall ? "h-9 w-9" : "h-11 w-11"
+              }`}
+            >
               {loading ? (
                 <LoaderCircle
-                  size={23}
+                  size={isSmall ? 19 : 23}
                   className="animate-spin text-[#006AFF]"
                 />
               ) : (
                 <MapPin
-                  size={23}
+                  size={isSmall ? 19 : 23}
                   className="text-[#006AFF]"
                 />
               )}
             </div>
 
             <div>
-              <p className="text-base font-semibold text-gray-900">
+              <p
+                className={`font-semibold text-gray-900 ${
+                  isSmall ? "text-sm" : "text-base"
+                }`}
+              >
                 {loading ? "Finding your location..." : "Current location"}
               </p>
 
@@ -150,7 +171,6 @@ function Search() {
                 Use your current location
               </p>
             </div>
-
           </button>
 
           {error && (
@@ -158,10 +178,8 @@ function Search() {
               {error}
             </p>
           )}
-
         </div>
       )}
-
     </div>
   );
 }

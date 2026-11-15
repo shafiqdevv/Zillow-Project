@@ -1,5 +1,5 @@
 
-import Search from "./Search";
+import Search from "../common/Search";
 import { motion } from "motion/react";
 
 function HeroSection() {
