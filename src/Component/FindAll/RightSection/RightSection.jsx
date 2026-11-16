@@ -1,9 +1,10 @@
+
 import { useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import useClickOutside from "../../../Hooks/useClickOutside";
 import ResultList from "./ResultList";
 
-function RightSection() {
+function RightSection({ results = [], activeType = "rent" }) {
   const [sortBy, setSortBy] = useState("Homes for You");
   const [isOpen, setIsOpen] = useState(false);
 
@@ -26,15 +27,17 @@ function RightSection() {
 
   return (
     <div className="flex h-full min-h-0 w-full flex-col overflow-hidden bg-white px-2">
-      {/* Fixed Header */}
       <header className="z-10 flex shrink-0 items-center justify-between gap-4 border-b border-gray-200 bg-white py-4">
         <div>
           <h1 className="text-xl font-bold text-gray-900">
-            South Dakota Rental Listings
+            {activeType === "buy"
+              ? "South Dakota Homes for Sale"
+              : "South Dakota Rental Listings"}
           </h1>
 
           <p className="mt-1 text-sm font-medium text-gray-600">
-            3,742 rentals available
+            {results.length}{" "}
+            {activeType === "buy" ? "homes" : "rentals"} available
           </p>
         </div>
 
@@ -78,9 +81,8 @@ function RightSection() {
         </div>
       </header>
 
-      {/* Only this section scrolls */}
       <div className="min-h-0 flex-1 overflow-y-auto py-5">
-        <ResultList />
+        <ResultList results={results} />
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 
 export const navbarData = {
   Buy: {
-    link:'/',
+    link:'/search',
     button: "Buy",
     iconSize: 15,
     buttonClass: `
@@ -53,7 +53,7 @@ export const navbarData = {
   },
 
   Rent: {
-    link:'/',
+    link:'/search',
     button: "Rent",
     iconSize: 15,
     buttonClass: `

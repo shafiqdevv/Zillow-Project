@@ -20,7 +20,7 @@ const homeActions = [
     button: "Find rentals",
     image:
       "https://www.zillowstatic.com/bedrock/app/uploads/sites/55/2025/04/homepage-spot-rent-lg.webp",
-    navLink: "/findRentals",
+    navLink: "/search",
   },
   {
     id: 3,

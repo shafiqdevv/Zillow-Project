@@ -1,6 +1,6 @@
 function MapSection() {
   return (
-    <div className="flex h-full min-h-0 items-center justify-center overflow-hidden bg-sky-50 p-6">
+    <div className="flex h-full min-h-0 items-center justify-center overflow-hidden bg-sky-50 p-6 bg-[url('/map.png')]">
       <div className="rounded-xl border-2 border-dashed border-sky-300 px-6 py-8 text-center">
         <p className="font-semibold text-gray-800">Map area</p>
 

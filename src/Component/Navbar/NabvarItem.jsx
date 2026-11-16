@@ -15,16 +15,24 @@ function NavbarItems({ title }) {
   const linkStyle =
     "text-blue-600 hover:underline decoration-1 decoration-gray-800 hover:text-gray-800";
 
+  const routeState = {
+    type:
+      title === "Buy"
+        ? "buy"
+        : title === "Rent"
+          ? "rent"
+          : undefined,
+  };
+
   return (
     <div
       className={item.wrapperClass || ""}
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      {/* Navigation Button */}
-
       <NavLink
         to={item.link}
+        state={routeState}
         onClick={() => setIsOpen((prev) => !prev)}
         aria-expanded={item.ariaExpanded ? isOpen : undefined}
         className={item.buttonClass}
@@ -39,34 +47,17 @@ function NavbarItems({ title }) {
         />
       </NavLink>
 
-      {/* Dropdown */}
-
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{
-              opacity: 0,
-              y: item.animationY,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            exit={{
-              opacity: 0,
-              y: item.animationY,
-            }}
-            transition={{
-              duration: 0.25,
-              ease: "easeOut",
-            }}
+            initial={{ opacity: 0, y: item.animationY }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: item.animationY }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
             className={item.dropdownClass}
           >
             {item.sections.map((section) => (
-              <div
-                key={section.title}
-                className={section.sectionClass}
-              >
+              <div key={section.title} className={section.sectionClass}>
                 <p>{section.title}</p>
 
                 {section.description && (
@@ -77,11 +68,7 @@ function NavbarItems({ title }) {
 
                 <div className={section.contentClass}>
                   {section.links.map((link) => (
-                    <a
-                      key={link}
-                      href="#"
-                      className={linkStyle}
-                    >
+                    <a key={link} href="#" className={linkStyle}>
                       {link}
                     </a>
                   ))}
