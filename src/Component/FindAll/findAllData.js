@@ -5,9 +5,10 @@ const findAllData = [
     id: 1,
     listingType: "buy",
     images: [
-      "/houses/house1.jpg",
-      "/houses/house2.jpg",
-      "/houses/house3.jpg",
+      "https://photos.zillowstatic.com/fp/184e50d95678ee3071ce6259ba702ff0-p_e.webp",
+      "https://photos.zillowstatic.com/fp/d6587a445023de0df66c67a50bc8bd73-p_e.webp",
+      "https://photos.zillowstatic.com/fp/a0a93710b38404cc2a47e0bd53560992-p_e.webp",
+      "https://photos.zillowstatic.com/fp/7f2c21cf09efed45766b945793ee9785-p_e.webp"
     ],
     price: 285000,
     originalPrice: 300000,

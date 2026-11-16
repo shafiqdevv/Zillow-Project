@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Pagination, Navigation } from "swiper/modules";
 
 import {
   FaHeart,
@@ -12,6 +12,7 @@ import {
 
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 function ResultCard({
   images = [],
@@ -52,12 +53,16 @@ function ResultCard({
     <div className="group w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg">
 
       {/* Image Section */}
-      <div className="relative h-[210px] w-full">
+      <div className="relative h-[210px] w-full overflow-hidden">
 
         <Swiper
-          modules={[Pagination]}
+          modules={[Pagination, Navigation]}
           slidesPerView={1}
           pagination={{ clickable: true }}
+          navigation={{
+            nextEl: ".swiper-button-next-custom",
+            prevEl: ".swiper-button-prev-custom",
+          }}
           className="result-swiper h-full w-full"
         >
           {validImages.map((image, index) => (
@@ -69,6 +74,24 @@ function ResultCard({
               />
             </SwiperSlide>
           ))}
+
+          {/* Previous Button */}
+          <button
+            className="swiper-button-prev-custom absolute left-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-gray-800 opacity-0 shadow-md transition-all duration-200 hover:bg-white group-hover:opacity-100"
+            aria-label="Previous image"
+            type="button"
+          >
+            ❮
+          </button>
+
+          {/* Next Button */}
+          <button
+            className="swiper-button-next-custom absolute right-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-gray-800 opacity-0 shadow-md transition-all duration-200 hover:bg-white group-hover:opacity-100"
+            aria-label="Next image"
+            type="button"
+          >
+            ❯
+          </button>
         </Swiper>
 
         {/* Top Badges */}
@@ -80,7 +103,7 @@ function ResultCard({
             </span>
           )}
 
-          {(offerLabel || (isNew && "New Listing")) && (
+          {(offerLabel || isNew) && (
             <span className="rounded-full bg-blue-700 px-2.5 py-1 text-xs font-bold text-white shadow-sm">
               {offerLabel || "New Listing"}
             </span>
