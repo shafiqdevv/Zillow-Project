@@ -3,7 +3,6 @@ import { useState } from "react";
 import {
   SlidersHorizontal,
   X,
-  CalendarDays,
   Info,
   Dog,
   Cat,
@@ -128,10 +127,14 @@ function Filter() {
       {/* Trigger Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="flex h-11 items-center gap-2 rounded-xl border border-gray-400 bg-white px-4 text-sm font-semibold hover:bg-gray-50"
+        className={`flex h-10 min-w-30 justify-center items-center gap-2 rounded-xl border-2 font-semibold ${
+          isOpen
+            ? "border-[#0054E8] bg-blue-50"
+            : "border-gray-400 bg-white hover:border-gray-600"
+        }`}
       >
-        <SlidersHorizontal size={17} />
         Filters
+        <SlidersHorizontal size={22} />
       </button>
 
       {/* Popup */}

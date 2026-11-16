@@ -1,11 +1,20 @@
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import useClickOutside from "../../../Hooks/useClickOutside";
 
 function PriceCategory() {
   const [isOpen, setIsOpen] = useState(false);
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(10000);
+
+  // click outside for closing dropdown
+  const dropdownRef = useRef(null);
+  function closeDropdown(){
+    setIsOpen(false)
+  }
+  useClickOutside(dropdownRef,closeDropdown);
+  
 
   const histogram = [
     4, 8, 13, 25, 40, 55, 62, 75, 90, 100,
@@ -35,12 +44,12 @@ function PriceCategory() {
   const maxPercent = (maxPrice / 10000) * 100;
 
   return (
-    <div className="relative w-fit">
+    <div ref={dropdownRef} className="relative w-fit">
 
       {/* Filter Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex h-10 min-w-[125px] items-center justify-center gap-2 rounded-xl border-2 px-4 text-sm font-semibold ${
+        className={`flex h-10 min-w-30 items-center justify-center gap-2 rounded-xl border-2 font-semibold ${
           isOpen
             ? "border-[#0054E8] bg-blue-50"
             : "border-gray-400 bg-white hover:border-gray-600"
@@ -49,9 +58,9 @@ function PriceCategory() {
         Price
 
         {isOpen ? (
-          <ChevronUp size={17} />
+          <ChevronUp size={22} strokeWidth={2.5}/>
         ) : (
-          <ChevronDown size={17} />
+          <ChevronDown size={22} strokeWidth={2.5}/>
         )}
       </button>
 

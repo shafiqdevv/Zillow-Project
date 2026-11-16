@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import useClickOutside from "../../../Hooks/useClickOutside";
 
 function KindCategory() {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,17 +9,25 @@ function KindCategory() {
 
   const options = ["For sale", "For rent", "Sold"];
 
+  // click outside for closing dropdown
+  const dropdownRef = useRef(null);
+  function closeDropdown(){
+    setIsOpen(false)
+  }
+  useClickOutside(dropdownRef,closeDropdown);
+
+
   const handleApply = () => {
     setApplied(selected);
     setIsOpen(false);
   };
 
   return (
-    <div className="relative w-fit">
+    <div ref={dropdownRef} className="relative w-fit">
       {/* Filter Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex h-10 min-w-35 items-center justify-center gap-3 rounded-2xl border-2 px-6 font-semibold transition-all ${
+        className={`flex h-10 min-w-35 items-center justify-center gap-2 rounded-xl border-2 font-semibold transition-all ${
           isOpen
             ? "border-[#0059FF] bg-blue-50"
             : "border-gray-400 bg-white hover:border-gray-600"

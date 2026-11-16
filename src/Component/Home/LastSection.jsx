@@ -5,34 +5,22 @@ import {
   titles,
   dropDownsContents,
 } from "./LastSectionData";
+import useClickOutside from "../../Hooks/useClickOutside";
 
 function LastSection() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeItem, setActiveItem] = useState("none");
 
-  const dropdownRef = useRef(null);
-
   const activeContent = dropDownsContents[activeItem];
 
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target)
-      ) {
-        setIsOpen(false);
-        setActiveItem("none");
-      }
-    }
+  // click outside for closing dropdown
+  const dropdownRef = useRef(null);
+  function closeDropdown(){
+    setIsOpen(false)
+  }
+  useClickOutside(dropdownRef,closeDropdown);
 
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
+  
   function handleClick(item) {
     if (activeItem === item && isOpen) {
       setIsOpen(false);

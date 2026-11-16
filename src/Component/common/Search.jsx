@@ -1,14 +1,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import { SearchIcon, MapPin, LoaderCircle, X } from "lucide-react";
+import useClickOutside from "../../Hooks/useClickOutside";
 
 function Search({ size = "large" }) {
   const [location, setLocation] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
-  const searchRef = useRef(null);
 
   // Dynamic styles based on size
   const isSmall = size === "small";
@@ -23,23 +22,12 @@ function Search({ size = "large" }) {
 
   const iconStyle = isSmall ? 20 : 25;
 
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (
-        searchRef.current &&
-        !searchRef.current.contains(event.target)
-      ) {
-        setIsOpen(false);
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  // click outside for closing dropdown
+  const dropdownRef = useRef(null);
+  function closeDropdown(){
+    setIsOpen(false)
+  }
+  useClickOutside(dropdownRef,closeDropdown);
 
   // Get current location
   const handleCurrentLocation = () => {
@@ -98,7 +86,7 @@ function Search({ size = "large" }) {
 
   return (
     <div
-      ref={searchRef}
+      ref={dropdownRef}
       className={`relative w-full ${containerStyle}`}
     >
       {/* Search Input */}

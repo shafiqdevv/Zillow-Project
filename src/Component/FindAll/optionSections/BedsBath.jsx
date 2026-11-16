@@ -1,12 +1,22 @@
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import useClickOutside from "../../../Hooks/useClickOutside";
 
 function BedsBath() {
   const [isOpen, setIsOpen] = useState(false);
   const [bedrooms, setBedrooms] = useState("Any");
   const [bathrooms, setBathrooms] = useState("Any");
   const [exactMatch, setExactMatch] = useState(false);
+
+
+  // click outside for closing dropdown
+  const dropdownRef = useRef(null);
+  function closeDropdown(){
+    setIsOpen(false)
+  }
+  useClickOutside(dropdownRef,closeDropdown);
+
 
   const bedroomOptions = ["Any", "1+", "2+", "3+", "4+", "5+"];
   const bathroomOptions = ["Any", "1+", "1.5+", "2+", "3+", "4+"];
@@ -31,17 +41,21 @@ function BedsBath() {
   );
 
   return (
-    <div className="relative w-[300px] max-w-[calc(100vw-14px)]">
+    <div ref={dropdownRef} className="relative max-w-[calc(100vw-14px)]">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex h-10 items-center gap-2 rounded-lg border border-gray-400 px-3 text-sm font-semibold"
+        className={`flex h-10 min-w-40 justify-center items-center gap-2 rounded-xl border-2 font-semibold ${
+          isOpen
+            ? "border-[#0054E8] bg-blue-50"
+            : "border-gray-400 bg-white hover:border-gray-600"
+        }`}
       >
         Beds & baths
-        {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+        {isOpen ? <ChevronUp size={22} strokeWidth={2.5}/> : <ChevronDown size={22} strokeWidth={2.5}/>}
       </button>
 
       {isOpen && (
-        <div className="absolute left-0 top-11 z-50 w-full overflow-hidden rounded-2xl bg-white shadow-xl">
+        <div className="absolute left-0 top-11 z-50 overflow-hidden rounded-2xl bg-white shadow-xl  w-75">
           <div className="bg-[#dedee2] px-3 py-2">
             <h3 className="text-sm font-bold text-gray-600">
               Number of Bedrooms

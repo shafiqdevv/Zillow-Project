@@ -8,7 +8,7 @@ import PropertTtype from "./PropertTtype";
 
 function OptionSections() {
   return (
-    <div className="flex items-center gap-5">
+    <div className="flex items-end gap-5 px-5">
       <Search size="small" />
       <KindCategory/>
       <PriceCategory/>
