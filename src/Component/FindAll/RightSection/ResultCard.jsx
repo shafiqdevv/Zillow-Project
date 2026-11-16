@@ -85,7 +85,7 @@ function ResultCard({ images = [], propertyType, isNew }) {
 
       {/* Content Section */}
       <div className="w-full p-4">
-        {/* Your property information goes here */}
+        <strong>$1,595</strong>
       </div>
     </div>
   );
