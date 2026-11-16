@@ -1,8 +1,10 @@
 import Search from "../../common/Search";
-import BedsBaths from "./BedsBaths.JSX";
+import BedsBath from "./BedsBath";
+import Filter from "./Filter";
 
 import KindCategory from "./KindCategory";
 import PriceCategory from "./PriceCategory";
+import PropertTtype from "./PropertTtype";
 
 function OptionSections() {
   return (
@@ -10,7 +12,9 @@ function OptionSections() {
       <Search size="small" />
       <KindCategory/>
       <PriceCategory/>
-     
+      <BedsBath/>
+      <PropertTtype/>
+      <Filter/>
     </div>
   );
 }
