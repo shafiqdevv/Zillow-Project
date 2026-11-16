@@ -16,20 +16,15 @@ import SeeYourOptionPage from "./Pages/SeeYourOption";
 import HomePage from "./Pages/HomePage";
 import FindRentals from "./Pages/FindRentals";
 
-
-// Main Layout With Sidebar
-// fillScreen is optional (default false). Only the Listings page uses it:
-// on desktop it makes the layout exactly as tall as the space below the Navbar
-// (5.75rem), so the map stays fixed and the list scrolls on its own.
 function AppLayout({ children, fillScreen = false }) {
   return (
     <div
-      className={`flex min-h-screen flex-col lg:flex-row ${
-        fillScreen ? "lg:h-[calc(100vh-5.75rem)] lg:min-h-0" : ""
+      className={`flex flex-col lg:flex-row ${
+        fillScreen
+          ? "h-[calc(100dvh-5.75rem)] min-h-0 overflow-hidden"
+          : "min-h-screen"
       }`}
     >
-
-      {/* Desktop Sidebar */}
       <aside className="hidden w-23 shrink-0 lg:block">
         <div
           className={`sticky top-0 ${
@@ -40,40 +35,32 @@ function AppLayout({ children, fillScreen = false }) {
         </div>
       </aside>
 
-      {/* Main Content */}
       <main
         className={`min-w-0 flex-1 pb-20 lg:pb-0 ${
-          fillScreen ? "lg:flex lg:min-h-0 lg:flex-col lg:overflow-hidden" : ""
+          fillScreen
+            ? "flex h-full min-h-0 flex-col overflow-hidden"
+            : ""
         }`}
       >
         {children}
       </main>
 
-      {/* Mobile Bottom Sidebar */}
       <aside className="fixed bottom-0 left-0 z-50 w-full lg:hidden">
         <SideBar />
       </aside>
-
     </div>
   );
 }
 
-// Main App
 function App() {
   const location = useLocation();
-
-  // Hide Navbar on Login Page
   const isLoginPage = location.pathname === "/login";
 
   return (
     <div className="min-h-screen">
-
-      {/* Navbar */}
-      {!isLoginPage && <NavBar/>}
+      {!isLoginPage && <NavBar />}
 
       <Routes>
-
-        {/* Home Page */}
         <Route
           path="/"
           element={
@@ -83,7 +70,6 @@ function App() {
           }
         />
 
-        {/* Listings Page (Buy / Rent / Search): /search?type=buy|rent|search */}
         <Route
           path="/search"
           element={
@@ -93,29 +79,9 @@ function App() {
           }
         />
 
-        {/* Selling Options Page */}
-        <Route
-          path="/seeYourOption"
-          element={
-            <AppLayout>
-              <SeeYourOptionPage />
-            </AppLayout>
-          }
-        />
+        <Route path="/findALocalAgent" element={<FindLocalAgent />} />
+        <Route path="/login" element={<Login />} />
 
-        {/* Find Local Agent Page */}
-        <Route
-          path="/findALocalAgent"
-          element={<FindLocalAgent />}
-        />
-
-        {/* Login Page - Without Navbar & Sidebar */}
-        <Route
-          path="/login"
-          element={<Login />}
-        />
-
-        {/* Update Page */}
         <Route
           path="/updatePage"
           element={
@@ -125,7 +91,6 @@ function App() {
           }
         />
 
-        {/* Favorite Page */}
         <Route
           path="/favoritesPage"
           element={
@@ -135,7 +100,6 @@ function App() {
           }
         />
 
-        {/* Plan page */}
         <Route
           path="/plan"
           element={
@@ -145,29 +109,33 @@ function App() {
           }
         />
 
-
-        {/* Inbox Page */}
         <Route
           path="/inbox"
           element={
             <AppLayout>
-              <Inbox/>
+              <Inbox />
             </AppLayout>
           }
         />
 
-        {/* Get A Mortgage Page*/}
         <Route
           path="/getAMortgage"
           element={
             <AppLayout>
-              <GetAMortgage/>
+              <GetAMortgage />
             </AppLayout>
           }
         />
 
+        <Route
+          path="/seeYourOption"
+          element={
+            <AppLayout>
+              <SeeYourOptionPage />
+            </AppLayout>
+          }
+        />
       </Routes>
-
     </div>
   );
 }

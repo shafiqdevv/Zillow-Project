@@ -1,14 +1,19 @@
-
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
-
-// Import your two components here
-// import ComponentOne from "./ComponentOne";
-// import ComponentTwo from "./ComponentTwo";
+import useClickOutside from "../../../Hooks/useClickOutside";
+import ResultList from "./ResultList";
 
 function RightSection() {
   const [sortBy, setSortBy] = useState("Homes for You");
   const [isOpen, setIsOpen] = useState(false);
+
+  const dropdownRef = useRef(null);
+
+  function closeDropdown() {
+    setIsOpen(false);
+  }
+
+  useClickOutside(dropdownRef, closeDropdown);
 
   const sortOptions = [
     "Homes for You",
@@ -20,12 +25,9 @@ function RightSection() {
   ];
 
   return (
-    <div className="w-full">
-
-      {/* Header */}
-      <header className="flex items-center justify-between gap-4 border-b border-gray-200 pb-5">
-
-        {/* Left Section */}
+    <div className="flex h-full min-h-0 w-full flex-col overflow-hidden bg-white px-2">
+      {/* Fixed Header */}
+      <header className="z-10 flex shrink-0 items-center justify-between gap-4 border-b border-gray-200 bg-white py-4">
         <div>
           <h1 className="text-xl font-bold text-gray-900">
             South Dakota Rental Listings
@@ -36,11 +38,14 @@ function RightSection() {
           </p>
         </div>
 
-        {/* Right Section - Sort Dropdown */}
-        <div className="relative shrink-0">
+        <div ref={dropdownRef} className="relative shrink-0">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="flex h-12 w-[200px] items-center justify-between rounded-xl border border-gray-400 bg-white px-3 text-sm hover:border-gray-700"
+            className={`flex h-10 min-w-50 items-center justify-center gap-2 rounded-xl border-2 font-semibold transition-all ${
+              isOpen
+                ? "border-[#0059FF] bg-blue-50"
+                : "border-gray-400 bg-white hover:border-gray-600"
+            }`}
           >
             <span>
               <span className="font-semibold">Sort: </span>
@@ -59,12 +64,11 @@ function RightSection() {
                     setSortBy(option);
                     setIsOpen(false);
                   }}
-                  className={`w-full px-4 py-3 text-left text-sm hover:bg-gray-100
-                    ${
-                      sortBy === option
-                        ? "bg-blue-50 font-bold text-blue-700"
-                        : "text-gray-800"
-                    }`}
+                  className={`w-full px-4 py-3 text-left text-sm hover:bg-gray-100 ${
+                    sortBy === option
+                      ? "bg-blue-50 font-bold text-blue-700"
+                      : "text-gray-800"
+                  }`}
                 >
                   {option}
                 </button>
@@ -74,12 +78,10 @@ function RightSection() {
         </div>
       </header>
 
-      {/* Your Two Components */}
-      <div className="mt-5">
-        {/* <ComponentOne /> */}
-        {/* <ComponentTwo /> */}
+      {/* Only this section scrolls */}
+      <div className="min-h-0 flex-1 overflow-y-auto py-5">
+        <ResultList />
       </div>
-
     </div>
   );
 }

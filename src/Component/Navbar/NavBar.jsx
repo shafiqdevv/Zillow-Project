@@ -66,7 +66,7 @@ function NavBar() {
           <img
             src="https://www.zillowstatic.com/s3/pfs/static/z-logo-default-visual-refresh.svg"
             alt="Zillow"
-            className="w-24 md:w-30 brightness-0 invert lg:brightness-100 lg:invert-0 lg:w-30 xl:w-30"
+            className="w-24 md:w-30 brightness-0 invert lg:brightness-100 lg:invert-0 lg:w-25 xl:w-30"
           />
         </div>
 
