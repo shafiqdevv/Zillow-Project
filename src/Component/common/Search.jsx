@@ -87,7 +87,7 @@ function Search({ size = "large" }) {
   return (
     <div
       ref={dropdownRef}
-      className={`relative w-full ${containerStyle}`}
+      className={`relative w-full ${containerStyle} z-2`}
     >
       {/* Search Input */}
       <div className="relative flex items-center">

@@ -34,7 +34,7 @@ function KindCategory({ activeType, onTypeChange }) {
     options.find((option) => option.value === activeType)?.label;
 
   return (
-    <div ref={dropdownRef} className="relative w-fit">
+    <div ref={dropdownRef} className="relative w-fit z-20">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`flex h-10 min-w-35 items-center justify-center gap-2 rounded-xl border-2 font-semibold transition-all ${

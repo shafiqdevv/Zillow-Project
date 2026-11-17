@@ -25,7 +25,7 @@ function SideBar() {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="flex w-full flex-row items-center justify-around border-t border-gray-300 bg-white py-3 shadow-[0_-2px_10px_rgba(0,0,0,0.05)] lg:min-h-screen lg:w-23 lg:flex-col lg:justify-start lg:gap-10 lg:border-r lg:border-t-0 lg:py-5 lg:shadow-none"
+      className="flex w-full flex-row items-center justify-around border-t border-gray-300 bg-white py-3 shadow-[0_-2px_10px_rgba(0,0,0,0.05)] lg:min-h-screen lg:w-23 md:h-14 lg:flex-col lg:justify-start lg:gap-10 lg:border-r lg:border-t-0 lg:py-5 lg:shadow-none"
     >
       {items.map((item, index) => {
         const Icon = item.icon;
