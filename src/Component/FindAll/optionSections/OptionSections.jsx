@@ -7,26 +7,26 @@ import PropertTtype from "./PropertTtype";
 
 function OptionSections({ activeType, onTypeChange }) {
   return (
-    <div className="z-20 flex shrink-0 items-end gap-5 bg-red-700 px-5 mt-15 lg:mt-0 max-lg:flex-col max-lg:items-center max-lg:gap-1 md:pt-15 lg:pt-0">
+    <div className="z-20 flex shrink-0 flex-col bg-white lg:flex-row lg:items-end lg:gap-5 mt-13">
 
       {/* Search */}
-      <div className="flex w-full justify-center [&>*]:w-full [&>*]:max-w-[500px]">
-        <Search size="small" />
+      <div className="sticky top-0 z-30 flex w-full justify-center bg-white px-5 py-2 lg:static lg:w-auto lg:flex-1 lg:py-0">
+        <div className="w-full max-w-[500px] lg:max-w-none">
+          <Search size="small" />
+        </div>
       </div>
 
       {/* Filters */}
-      <div className="flex w-full items-center justify-center gap-5">
+      <div className="sticky top-10 z-20 flex w-full items-center justify-center gap-5 overflow-x-auto bg-white px-5 py-2 lg:static lg:w-auto lg:overflow-visible lg:py-0">
         <KindCategory
           activeType={activeType}
           onTypeChange={onTypeChange}
         />
-
         <PriceCategory />
         <BedsBath />
         <PropertTtype />
         <Filter />
       </div>
-
     </div>
   );
 }

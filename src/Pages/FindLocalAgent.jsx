@@ -17,7 +17,7 @@ function FindLocalAgent() {
   };
 
   return (
-    <section className="w-full min-h-screen bg-white px-5 py-12">
+    <section className="w-full min-h-screen bg-white px-5 py-12 sm:px-90">
       <div className="mx-auto w-full max-w-[715px]">
         {/* Heading */}
         <div className="mb-6">

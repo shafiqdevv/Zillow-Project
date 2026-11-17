@@ -21,7 +21,7 @@ function AppLayout({ children, fillScreen = false }) {
     <div
       className={`flex flex-col lg:flex-row ${
         fillScreen
-          ? "h-[calc(100dvh-5.75rem)] min-h-0 overflow-hidden"
+          ? "lg:h-[calc(100dvh-5.75rem)] min-h-0 overflow-hidden"
           : "min-h-screen"
       }`}
     >
