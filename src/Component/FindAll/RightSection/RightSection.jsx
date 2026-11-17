@@ -26,8 +26,8 @@ function RightSection({ results = [], activeType = "rent" }) {
   ];
 
   return (
-    <div className="flex h-full min-h-0 w-full flex-col overflow-hidden bg-white px-2">
-      <header className="z-10 flex shrink-0 items-center justify-between gap-4 border-b border-gray-200 bg-white py-4">
+    <div className="flex h-full min-h-0 w-full flex-col overflow-hidden">
+      <header className="z-10 flex shrink-0 items-center justify-between gap-4 border-b border-gray-200">
         <div>
           <h1 className="text-xl font-bold text-gray-900">
             {activeType === "buy"

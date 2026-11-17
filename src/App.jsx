@@ -36,7 +36,7 @@ function AppLayout({ children, fillScreen = false }) {
       </aside>
 
       <main
-        className={`min-w-0 flex-1 pb-20 lg:pb-0 ${
+        className={`min-w-0 flex-1 ${
           fillScreen
             ? "flex h-full min-h-0 flex-col overflow-hidden"
             : ""

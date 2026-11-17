@@ -7,7 +7,7 @@ import PropertTtype from "./PropertTtype";
 
 function OptionSections({ activeType, onTypeChange }) {
   return (
-    <div className="z-20 flex shrink-0 items-end gap-5 bg-white px-5 py-3 max-lg:flex-col max-lg:items-center max-lg:gap-4 md:pt-15 lg:pt-0">
+    <div className="z-20 flex shrink-0 items-end gap-5 bg-red-700 px-5 mt-15 lg:mt-0 max-lg:flex-col max-lg:items-center max-lg:gap-1 md:pt-15 lg:pt-0">
 
       {/* Search */}
       <div className="flex w-full justify-center [&>*]:w-full [&>*]:max-w-[500px]">

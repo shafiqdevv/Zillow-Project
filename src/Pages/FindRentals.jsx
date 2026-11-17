@@ -24,7 +24,7 @@ function FindRentals() {
   );
 
   return (
-    <div className="flex h-full min-h-0 flex-col gap-3 overflow-hidden">
+    <div className="flex h-full min-h-0 flex-col overflow-hidden">
       <OptionSections
         activeType={activeType}
         onTypeChange={setActiveType}
@@ -32,12 +32,12 @@ function FindRentals() {
 
       {/* Mobile & Tablet Map / List Controls */}
       <div className="flex shrink-0 justify-center lg:hidden">
-        <div className="flex items-center overflow-hidden rounded-full border border-gray-300 bg-white shadow-sm">
+        <div className="flex fixed z-10 bottom-17 items-center overflow-hidden rounded-full border bg-white border-gray-300 shadow-sm">
 
           <button
             onClick={() => setShowMap(!showMap)}
             className="flex items-center justify-center gap-2 px-6 py-2.5 text-sm font-semibold text-gray-800 transition hover:bg-gray-100"
-          >
+            >
             {showMap ? (
               <>
                 <List size={18} />
