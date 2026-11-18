@@ -1,4 +1,5 @@
 import Footer from "../Component/common/Footer";
+import QRCode from "../Component/common/QRCode";
 import HeroSection from "../Component/Home/HeroSection";
 import LastSection from "../Component/Home/LastSection";
 import Section1 from "../Component/Home/Section1";
@@ -14,6 +15,7 @@ function HomePage() {
       <HomeActionCards />
       <LastSection />
       <Footer />
+      <QRCode/>
     </>
   );
 }
