@@ -31,7 +31,7 @@ function GetHelpAgent() {
         <div className="w-full overflow-hidden rounded-lg">
 
           <img
-            src="/agent-help.jpg"
+            src="https://delivery.digitallibrary.zillowgroup.com/public/SZ_72_BRAND2026_TOURING_08423_w4_f1_jpg_CMS_Extra_Large.webp"
             alt="Real estate agent helping a client find a home"
             loading="lazy"
             className="h-[220px] w-full object-cover sm:h-[300px] lg:h-[300px]"

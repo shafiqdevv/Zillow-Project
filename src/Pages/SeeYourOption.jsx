@@ -1,6 +1,6 @@
 
 import Footer from "../Component/common/Footer";
-import sellQuestions from "../Component/SeeYourOption/sellQuestions";
+import sellQuestions from "../Component/SeeYourOption/sellQuestionsDataa";
 import BuildSmartSelling from "../Component/SeeYourOption/BuildSmartSelling";
 import CashOfferSection from "../Component/SeeYourOption/CashOfferSection";
 import FindYourAgentSection from "../Component/SeeYourOption/FindYourAgentSection";
