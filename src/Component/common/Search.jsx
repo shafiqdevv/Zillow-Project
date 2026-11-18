@@ -1,5 +1,5 @@
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { SearchIcon, MapPin, LoaderCircle, X } from "lucide-react";
 import useClickOutside from "../../Hooks/useClickOutside";
 
@@ -11,23 +11,30 @@ function Search({ size = "large" }) {
 
   // Dynamic styles based on size
   const isSmall = size === "small";
+  const isMedium = size === "medium";
 
   const containerStyle = isSmall
     ? "max-w-[380px] mt-2"
-    : "max-w-[520px] mt-8";
+    : isMedium
+      ? "max-w-[450px] mt-0"
+      : "max-w-[520px] mt-8";
 
   const inputStyle = isSmall
     ? "h-12 px-4 pr-12 text-sm"
-    : "h-20 px-5 pr-16 text-base sm:text-lg";
+    : isMedium
+      ? "h-14 px-5 pr-14 text-base"
+      : "h-20 px-5 pr-16 text-base sm:text-lg";
 
-  const iconStyle = isSmall ? 20 : 25;
+  const iconStyle = isSmall ? 20 : isMedium ? 23 : 25;
 
-  // click outside for closing dropdown
+  // Click outside for closing dropdown
   const dropdownRef = useRef(null);
-  function closeDropdown(){
-    setIsOpen(false)
+
+  function closeDropdown() {
+    setIsOpen(false);
   }
-  useClickOutside(dropdownRef,closeDropdown);
+
+  useClickOutside(dropdownRef, closeDropdown);
 
   // Get current location
   const handleCurrentLocation = () => {
@@ -87,7 +94,7 @@ function Search({ size = "large" }) {
   return (
     <div
       ref={dropdownRef}
-      className={`relative w-full ${containerStyle} z-2`}
+      className={`relative z-20 w-full ${containerStyle}`}
     >
       {/* Search Input */}
       <div className="relative flex items-center">
@@ -107,7 +114,7 @@ function Search({ size = "large" }) {
             aria-label="Clear search"
             className="absolute right-5 text-gray-500 hover:text-gray-900"
           >
-            <X size={isSmall ? 18 : 22} />
+            <X size={isSmall ? 18 : isMedium ? 20 : 22} />
           </button>
         ) : (
           <SearchIcon
@@ -125,22 +132,28 @@ function Search({ size = "large" }) {
             onClick={handleCurrentLocation}
             disabled={loading}
             className={`flex w-full items-center text-left transition-colors hover:bg-gray-100 disabled:cursor-wait disabled:opacity-60 ${
-              isSmall ? "gap-3 px-4 py-3" : "gap-4 px-5 py-4"
+              isSmall
+                ? "gap-3 px-4 py-3"
+                : "gap-4 px-5 py-4"
             }`}
           >
             <div
               className={`flex shrink-0 items-center justify-center rounded-full bg-blue-50 ${
-                isSmall ? "h-9 w-9" : "h-11 w-11"
+                isSmall
+                  ? "h-9 w-9"
+                  : isMedium
+                    ? "h-10 w-10"
+                    : "h-11 w-11"
               }`}
             >
               {loading ? (
                 <LoaderCircle
-                  size={isSmall ? 19 : 23}
+                  size={isSmall ? 19 : isMedium ? 21 : 23}
                   className="animate-spin text-[#006AFF]"
                 />
               ) : (
                 <MapPin
-                  size={isSmall ? 19 : 23}
+                  size={isSmall ? 19 : isMedium ? 21 : 23}
                   className="text-[#006AFF]"
                 />
               )}
@@ -152,7 +165,9 @@ function Search({ size = "large" }) {
                   isSmall ? "text-sm" : "text-base"
                 }`}
               >
-                {loading ? "Finding your location..." : "Current location"}
+                {loading
+                  ? "Finding your location..."
+                  : "Current location"}
               </p>
 
               <p className="mt-1 text-sm text-gray-500">

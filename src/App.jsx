@@ -1,3 +1,4 @@
+
 import { Route, Routes, useLocation } from "react-router-dom";
 
 // Layout Components
@@ -6,6 +7,7 @@ import NavBar from "./Component/Navbar/NavBar";
 
 // Pages
 import FindLocalAgent from "./Pages/FindLocalAgent";
+import FindAnAgent from "./Pages/FindAnAgent";
 import Login from "./Pages/Login";
 import UpdatePage from "./Pages/UpdatePage";
 import Favorites from "./Pages/FavoritesPage";
@@ -79,7 +81,20 @@ function App() {
           }
         />
 
-        <Route path="/findALocalAgent" element={<FindLocalAgent />} />
+        <Route
+          path="/findALocalAgent"
+          element={<FindLocalAgent />}
+        />
+
+        <Route
+          path="/findAnAgent"
+          element={
+            <AppLayout>
+              <FindAnAgent />
+            </AppLayout>
+          }
+        />
+
         <Route path="/login" element={<Login />} />
 
         <Route
