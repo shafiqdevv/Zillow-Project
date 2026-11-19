@@ -1,4 +1,6 @@
 
+import AudienceSection from "./AudienceSection";
+
 const industries = [
   {
     id: "agent",
@@ -44,7 +46,6 @@ function PartnerWithZillow({ onSelect }) {
 
       {/* Header */}
       <header className="mx-auto mb-16 max-w-5xl text-center">
-
         <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-[#171717] sm:text-4xl md:text-5xl lg:text-[50px]">
           Partner with Zillow to Grow Your Business
         </h1>
@@ -59,7 +60,6 @@ function PartnerWithZillow({ onSelect }) {
         <h2 className="mt-9 text-xl font-extrabold text-[#171717] sm:text-2xl">
           Select your industry to get started
         </h2>
-
       </header>
 
       {/* Industry Cards */}
@@ -70,7 +70,6 @@ function PartnerWithZillow({ onSelect }) {
             key={industry.id}
             className="group flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
           >
-
             {/* Image */}
             <div className="h-[210px] w-full overflow-hidden sm:h-[220px]">
               <img
@@ -97,11 +96,15 @@ function PartnerWithZillow({ onSelect }) {
               </button>
 
             </div>
-
           </article>
         ))}
 
       </section>
+
+      {/* Audience Section */}
+      <div className="-mx-4 mt-20 sm:-mx-6 lg:-mx-10">
+        <AudienceSection />
+      </div>
 
     </main>
   );
