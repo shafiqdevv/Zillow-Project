@@ -23,7 +23,7 @@ function AppLayout({ children, fillScreen = false }) {
     <div
       className={`flex flex-col lg:flex-row ${
         fillScreen
-          ? "lg:h-[calc(100dvh-5.75rem)] min-h-0 overflow-hidden"
+          ? "lg:h-[calc(100dvh-5.75rem)] min-h-0 lg:overflow-hidden"
           : "min-h-screen"
       }`}
     >
@@ -40,7 +40,7 @@ function AppLayout({ children, fillScreen = false }) {
       <main
         className={`min-w-0 flex-1 ${
           fillScreen
-            ? "flex h-full min-h-0 flex-col overflow-hidden"
+            ? "flex h-full min-h-0 flex-col lg:overflow-hidden"
             : ""
         }`}
       >

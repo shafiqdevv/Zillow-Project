@@ -22,7 +22,7 @@ function FindRentals() {
   const filteredData = findAllData.filter(
     (item) => item.listingType === activeType
   );
-
+ 
   return (
     <div className="flex h-full min-h-0 flex-col px-1">
 

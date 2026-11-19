@@ -184,7 +184,7 @@ export const navbarData = {
   },
 
   "Find an agent": {
-    link:'/',
+    link:'/findAnAgent',
     button: "Find an agent",
     iconSize: 16,
     buttonClass:
