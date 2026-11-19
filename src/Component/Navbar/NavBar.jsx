@@ -75,12 +75,12 @@ function NavBar() {
         <div className="hidden lg:flex gap-4 lg:gap-3 xl:gap-3 items-center">
           <NavbarItems title="Manage rentals" />
 
-          <a
-            href="#"
+          <NavLink
+            to={'partnerWithZillow'}
             className="hover:text-blue-700 cursor-pointer text-lg font-semibold bg-blue-100 p-1 rounded-lg lg:text-sm xl:text-lg"
           >
             Advertise
-          </a>
+          </NavLink>
 
           <a
             href="#"

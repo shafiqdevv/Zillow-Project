@@ -18,6 +18,9 @@ import SeeYourOptionPage from "./Pages/SeeYourOption";
 import HomePage from "./Pages/HomePage";
 import FindRentals from "./Pages/FindRentals";
 
+// Partner Pages
+import PartnerWithZillow from "./Pages/PartnerWithZillow";
+
 function AppLayout({ children, fillScreen = false }) {
   return (
     <div
@@ -147,6 +150,16 @@ function App() {
           element={
             <AppLayout>
               <SeeYourOptionPage />
+            </AppLayout>
+          }
+        />
+
+        {/* Partner With Zillow */}
+        <Route
+          path="/partnerWithZillow"
+          element={
+            <AppLayout>
+              <PartnerWithZillow />
             </AppLayout>
           }
         />

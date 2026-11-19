@@ -30,6 +30,7 @@ function NavbarItems({ title }) {
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
+      {/* Main Navbar Link */}
       <NavLink
         to={item.link}
         state={routeState}
@@ -47,6 +48,7 @@ function NavbarItems({ title }) {
         />
       </NavLink>
 
+      {/* Dropdown */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -57,20 +59,31 @@ function NavbarItems({ title }) {
             className={item.dropdownClass}
           >
             {item.sections.map((section) => (
-              <div key={section.title} className={section.sectionClass}>
+              <div
+                key={section.title}
+                className={section.sectionClass}
+              >
+                {/* Section Title */}
                 <p>{section.title}</p>
 
+                {/* Section Description */}
                 {section.description && (
                   <p className={section.descriptionClass}>
                     {section.description}
                   </p>
                 )}
 
+                {/* Section Links */}
                 <div className={section.contentClass}>
-                  {section.links.map((link) => (
-                    <a key={link} href="#" className={linkStyle}>
-                      {link}
-                    </a>
+                  {section.linksName?.map((link) => (
+                    <NavLink
+                      to={link.path}
+                      key={link.name}
+                      onClick={() => setIsOpen(false)}
+                      className={linkStyle}
+                    >
+                      {link.name}
+                    </NavLink>
                   ))}
                 </div>
               </div>

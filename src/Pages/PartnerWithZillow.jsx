@@ -1,5 +1,6 @@
 
-import AudienceSection from "./AudienceSection";
+import Footer from "../Component/common/Footer";
+import AudienceSection from "../Component/PartnerWithZillow/AudienceSection";
 
 const industries = [
   {
@@ -68,7 +69,7 @@ function PartnerWithZillow({ onSelect }) {
         {industries.map((industry) => (
           <article
             key={industry.id}
-            className="group flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+            className="group flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-xl"
           >
             {/* Image */}
             <div className="h-[210px] w-full overflow-hidden sm:h-[220px]">
@@ -76,7 +77,7 @@ function PartnerWithZillow({ onSelect }) {
                 src={industry.image}
                 alt={industry.title}
                 loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-102"
               />
             </div>
 
@@ -104,6 +105,10 @@ function PartnerWithZillow({ onSelect }) {
       {/* Audience Section */}
       <div className="-mx-4 mt-20 sm:-mx-6 lg:-mx-10">
         <AudienceSection />
+      </div>
+      {/* Footer Section */}
+      <div className="-mx-4 mt-20 sm:-mx-6 lg:-mx-10">
+        <Footer/>
       </div>
 
     </main>
