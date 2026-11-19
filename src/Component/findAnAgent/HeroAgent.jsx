@@ -5,9 +5,6 @@ import Search from "../common/Search";
 function HeroAgent() {
   const [activeTab, setActiveTab] = useState("name");
   const [agentName, setAgentName] = useState("");
-  const [showHistory, setShowHistory] = useState(false);
-
-  const searchHistory = ["john"];
 
   return (
     <section
@@ -39,10 +36,8 @@ function HeroAgent() {
           {/* Tabs */}
           <div className="flex shrink-0">
             <button
-              onClick={() => {
-                setActiveTab("location");
-                setShowHistory(false);
-              }}
+              type="button"
+              onClick={() => setActiveTab("location")}
               className={`flex-1 border px-5 py-3 font-semibold transition sm:flex-none ${
                 activeTab === "location"
                   ? "border-blue-600 bg-blue-50 text-blue-700"
@@ -53,10 +48,8 @@ function HeroAgent() {
             </button>
 
             <button
-              onClick={() => {
-                setActiveTab("name");
-                setShowHistory(false);
-              }}
+              type="button"
+              onClick={() => setActiveTab("name")}
               className={`flex-1 border px-5 py-3 font-semibold transition sm:flex-none ${
                 activeTab === "name"
                   ? "border-blue-600 bg-blue-50 text-blue-700"
@@ -70,56 +63,28 @@ function HeroAgent() {
           {/* Name Tab */}
           {activeTab === "name" && (
             <>
-              <div className="relative min-w-0 flex-1">
+              <div className="flex min-h-[54px] min-w-0 flex-1 items-center rounded-md border border-gray-300 px-4 transition focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-200">
 
-                <div className="flex min-h-[54px] items-center rounded-md border border-gray-300 px-4 focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-200">
+                <svg
+                  className="mr-3 h-5 w-5 shrink-0 text-gray-500"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.42 0-8 2.24-8 5v2h16v-2c0-2.76-3.58-5-8-5Z" />
+                </svg>
 
-                  <svg
-                    className="mr-3 h-5 w-5 shrink-0 text-gray-500"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.42 0-8 2.24-8 5v2h16v-2c0-2.76-3.58-5-8-5Z" />
-                  </svg>
-
-                  <input
-                    type="text"
-                    value={agentName}
-                    onChange={(e) => setAgentName(e.target.value)}
-                    onFocus={() => setShowHistory(true)}
-                    placeholder="Agent name"
-                    className="w-full min-w-0 bg-transparent text-gray-800 outline-none placeholder:text-gray-500"
-                  />
-                </div>
-
-                {/* Search History */}
-                {showHistory && (
-                  <div className="absolute left-0 right-0 top-full z-30 mt-2 overflow-hidden rounded-lg bg-white shadow-xl">
-
-                    <div className="bg-gray-100 px-4 py-3 text-sm font-semibold text-gray-500">
-                      SEARCH HISTORY
-                    </div>
-
-                    {searchHistory.map((item, index) => (
-                      <button
-                        key={index}
-                        onClick={() => {
-                          setAgentName(item);
-                          setShowHistory(false);
-                        }}
-                        className="flex w-full items-center gap-3 px-4 py-4 text-left text-gray-700 hover:bg-gray-50"
-                      >
-                        <span className="text-lg">◷</span>
-                        {item}
-                      </button>
-                    ))}
-                  </div>
-                )}
+                <input
+                  type="text"
+                  value={agentName}
+                  onChange={(e) => setAgentName(e.target.value)}
+                  placeholder="Agent name"
+                  className="w-full min-w-0 bg-transparent text-gray-800 outline-none placeholder:text-gray-500"
+                />
               </div>
 
               {/* Find Agent Button */}
               <button
-                onClick={() => setShowHistory(false)}
+                type="button"
                 className="flex min-h-[54px] shrink-0 items-center justify-center gap-2 rounded-md bg-[#006AFF] px-5 py-3 font-semibold text-white transition hover:bg-blue-700"
               >
                 <svg
@@ -141,8 +106,7 @@ function HeroAgent() {
           {/* Location Tab */}
           {activeTab === "location" && (
             <div className="min-w-0 flex-1">
-              {/*Search component here */}
-              <Search size="medium"/>
+              <Search size="medium" />
             </div>
           )}
 

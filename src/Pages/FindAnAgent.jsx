@@ -1,3 +1,4 @@
+import Footer from "../Component/common/Footer";
 import FrequentlyQuestion from "../Component/common/FrequentlyQuestion";
 import AgentDirectoryLinks from "../Component/findAnAgent/AgentDirectoryLinks";
 import AgentListings from "../Component/findAnAgent/AgentListings";
@@ -15,6 +16,7 @@ function FindAnAgent() {
       <FrequentlyQuestion questions={agentQuestions}/>
       <AreYouReal/>
       <AgentDirectoryLinks/>
+      <Footer/>
     </>
   );
 }
