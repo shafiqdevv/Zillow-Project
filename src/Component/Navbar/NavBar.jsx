@@ -8,13 +8,17 @@ import {
   mobileNavigation,
   navigationItems,
 } from "./NavbarData";
+
 import NavbarItems from "./NabvarItem";
 
 function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeItem, setActiveItem] = useState("Buy");
 
-  const activeContent = mobileNavigation[activeItem];
+  const activeContent = mobileNavigation[activeItem] ?? {
+    link: "/",
+    sections: [],
+  };
 
   const closeMenu = () => {
     setMenuOpen(false);
@@ -28,9 +32,8 @@ function NavBar() {
     >
       {/* Main Navbar */}
 
-      <div
-        className="flex relative h-20 lg:h-23 px-4 md:px-8 xl:pl-23 xl:pr-5 lg:pl-20 lg:pr-2 justify-between items-center border-b-0 lg:border-b lg:border-gray-300 bg-transparent lg:bg-white"
-      >
+      <div className="flex relative h-20 lg:h-23 px-4 md:px-8 xl:pl-23 xl:pr-5 lg:pl-20 lg:pr-2 justify-between items-center border-b-0 lg:border-b lg:border-gray-300 bg-transparent lg:bg-white">
+
         {/* Desktop Left Navigation */}
 
         <div className="hidden lg:flex gap-4 lg:gap-3 xl:gap-3 items-center">
@@ -53,11 +56,7 @@ function NavBar() {
           }
           aria-expanded={menuOpen}
         >
-          {menuOpen ? (
-            <X size={27} />
-          ) : (
-            <Menu size={27} />
-          )}
+          {menuOpen ? <X size={27} /> : <Menu size={27} />}
         </button>
 
         {/* Logo */}
@@ -76,21 +75,21 @@ function NavBar() {
           <NavbarItems title="Manage rentals" />
 
           <NavLink
-            to={'partnerWithZillow'}
+            to="/partnerWithZillow"
             className="hover:text-blue-700 cursor-pointer text-lg font-semibold bg-blue-100 p-1 rounded-lg lg:text-sm xl:text-lg"
           >
             Advertise
           </NavLink>
 
-          <a
-            href="#"
+          <NavLink
+            to="/helpCenter"
             className="hover:text-blue-700 cursor-pointer text-lg font-semibold bg-blue-100 p-1 rounded-lg lg:text-sm xl:text-lg"
           >
             Get help
-          </a>
+          </NavLink>
 
           <NavLink
-            to={"/login"}
+            to="/login"
             className="bg-blue-700 text-white px-4 py-2 rounded-xl text-sm font-bold cursor-pointer hover:bg-blue-800"
           >
             Sign in
@@ -100,7 +99,8 @@ function NavBar() {
         {/* Mobile Sign In */}
 
         <NavLink
-          to={"/login"}
+          to="/login"
+          onClick={closeMenu}
           className="lg:hidden bg-white text-blue-700 px-5 py-3 rounded-2xl text-sm font-bold"
         >
           Sign in
@@ -141,7 +141,6 @@ function NavBar() {
                       }`}
                     >
                       <span>{item}</span>
-
                       <ChevronRight
                         size={17}
                         className="shrink-0"
@@ -163,43 +162,55 @@ function NavBar() {
                     transition={{ duration: 0.2 }}
                     className="flex flex-col gap-7"
                   >
-                    <h2 className="text-xl font-bold text-gray-900">
+                    {/* Main Item Link */}
+
+                    <NavLink
+                      to={activeContent.link}
+                      onClick={closeMenu}
+                      className="text-xl font-bold text-gray-900 cursor-pointer hover:text-blue-700"
+                    >
                       {activeItem}
-                    </h2>
+                    </NavLink>
 
-                    {activeContent.map((section, index) => (
-                      <div
-                        key={section.title}
-                        className={`flex flex-col gap-4 ${
-                          index !== 0
-                            ? "border-t border-gray-300 pt-5"
-                            : ""
-                        }`}
-                      >
-                        <h3 className="text-sm sm:text-base font-semibold text-gray-900">
-                          {section.title}
-                        </h3>
+                    {/* Sections */}
 
-                        {section.description && (
-                          <p className="text-sm text-gray-600 leading-relaxed">
-                            {section.description}
-                          </p>
-                        )}
+                    {activeContent.sections.map(
+                      (section, index) => (
+                        <div
+                          key={`${activeItem}-${section.title}`}
+                          className={`flex flex-col gap-4 ${
+                            index !== 0
+                              ? "border-t border-gray-300 pt-5"
+                              : ""
+                          }`}
+                        >
+                          <h3 className="text-sm sm:text-base font-semibold text-gray-900">
+                            {section.title}
+                          </h3>
 
-                        <div className="flex flex-col gap-4">
-                          {section.links.map((link) => (
-                            <a
-                              key={link}
-                              href="#"
-                              onClick={closeMenu}
-                              className="text-blue-600 text-sm sm:text-base hover:text-gray-900 hover:underline decoration-1 underline-offset-4"
-                            >
-                              {link}
-                            </a>
-                          ))}
+                          {section.description && (
+                            <p className="text-sm text-gray-600 leading-relaxed">
+                              {section.description}
+                            </p>
+                          )}
+
+                          <div className="flex flex-col gap-4">
+                            {section.linksName.map(
+                              (link, linkIndex) => (
+                                <NavLink
+                                  key={`${activeItem}-${section.title}-${linkIndex}`}
+                                  to={link.path}
+                                  onClick={closeMenu}
+                                  className="text-blue-600 text-sm sm:text-base hover:text-gray-900 hover:underline decoration-1 underline-offset-4"
+                                >
+                                  {link.name}
+                                </NavLink>
+                              )
+                            )}
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      )
+                    )}
                   </motion.div>
                 </AnimatePresence>
               </div>
@@ -212,4 +223,3 @@ function NavBar() {
 }
 
 export default NavBar;
-

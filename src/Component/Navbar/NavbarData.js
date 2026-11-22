@@ -307,18 +307,20 @@ export const navbarData = {
 };
 
 
-// Mobile navigation uses the same names and paths
+// Mobile navigation uses the same data as desktop navigation
 export const mobileNavigation = Object.fromEntries(
   Object.entries(navbarData).map(([key, value]) => [
     key,
-    value.sections.map((section) => ({
-      title: section.title,
-      description: section.description,
-      linksName: section.linksName || [],
-    })),
+    {
+      link: value.link,
+      sections: value.sections.map((section) => ({
+        title: section.title,
+        description: section.description,
+        linksName: section.linksName || [],
+      })),
+    },
   ])
 );
-
 
 export const navigationItems = [
   "Buy",
